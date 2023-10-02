@@ -1,0 +1,26 @@
+fileFormatVersion: 2
+guid: b17ba6482c7b6a14dbf04820b8a84467
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Slime_lvl1: {fileID: 1263016102349382469, guid: a148ff497ca63df4aa3b716c864ff74e, type: 3}
+  - Slime_lvl2: {fileID: 8790392312532744913, guid: c8f209e852bb320458abc6f797331df4, type: 3}
+  - Slime_lvl3: {fileID: 8310232452251464545, guid: b797f90c949a4ce40aeca3fb3432931f, type: 3}
+  - Slime_lvl4: {fileID: 8029271070373318885, guid: c4a139852b516a543ae6e51980bd9e02, type: 3}
+  - Slime_lvl5: {instanceID: 0}
+  - Slime_lvl6: {instanceID: 0}
+  - Slime_lvl7: {instanceID: 0}
+  - Slime_lvl8: {instanceID: 0}
+  - Reinforced: {instanceID: 0}
+  - Camo: {instanceID: 0}
+  - Rock: {instanceID: 0}
+  - Speed: {instanceID: 0}
+  - MagicRes: {instanceID: 0}
+  - ExploRes: {instanceID: 0}
+  - None: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

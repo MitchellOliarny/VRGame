@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbab50659afd9d94797ecdde9542c86e, type: 3}
+  m_Name: DefaultSettings
+  m_EditorClassIdentifier: 
+  damage: 10
+  bulletSpeed: 0
+  bulletScale: {x: 1, y: 1, z: 1}
+  speedMod: 25
+  fireRateTimer: 0
+  fireRateStartTimer: 0.5
+  turretBlast: {fileID: 5270354935834947454, guid: d411c96a6b305f04fb92884d7e57badf, type: 3}
+  accuracyMod: 0

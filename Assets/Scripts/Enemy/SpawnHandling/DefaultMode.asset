@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17ba6482c7b6a14dbf04820b8a84467, type: 3}
+  m_Name: DefaultMode
+  m_EditorClassIdentifier: 
+  SpawnTimer: 0.1
+  WaveArray: []
+  WaveTimer: 0.1
+  waveCounter: 1
+  AllWaves:
+  - {fileID: 11400000, guid: 2790ca3654f2bb34cba1397788632809, type: 2}
+  - {fileID: 11400000, guid: 6efd1f71e651a7a40b1b4c7627bf8cdc, type: 2}
+  - {fileID: 11400000, guid: db7f6cf779c520f45a8b336c6cf96a55, type: 2}
+  currentWave: []
+  Slime: {fileID: 1263016102349382469, guid: a148ff497ca63df4aa3b716c864ff74e, type: 3}
+  tiers: []
+  Ogre: {fileID: 8861733761192030331, guid: d008a1e351a8bf04c83e24619c4f7a14, type: 3}
+  Reinforced: {fileID: 11400000, guid: b947a887f2f9a4849ba0f4261af884cc, type: 2}
+  Camo: {fileID: 11400000, guid: da2f97b986eff304f82b216875a9a15c, type: 2}
+  Rock: {fileID: 11400000, guid: ac10e2ba731264649940489f3d6c3b04, type: 2}
+  Speed: {fileID: 11400000, guid: 7c53aa1194e65ef4eb0c46f8d77e5c72, type: 2}
+  MagicRes: {fileID: 11400000, guid: a034762406006ac49ba47af926e57747, type: 2}
+  ExploRes: {fileID: 11400000, guid: c6995a0a95a6e2b4f97e114cc9dbff09, type: 2}
+  None: {fileID: 11400000, guid: de4d361355dfaa74fbef8857c53f800f, type: 2}

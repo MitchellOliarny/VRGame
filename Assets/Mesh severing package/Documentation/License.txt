@@ -1,0 +1,8 @@
+This package of assets is subject to Unity's standard EULA.
+
+
+//--------------------------------------//
+Copyright Chris Andrade.
+Test and development on November 2013.
+Ver: 1.0.
+//--------------------------------------//
