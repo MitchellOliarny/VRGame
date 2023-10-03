@@ -28,8 +28,9 @@ public class SpinnerUpgradeManager : UpgradeMaster
 
     public override bool Upgrade(int path, int index)
     {
-        if (CanBuy(path, index))
-        {
+       // if (CanBuy(path, index))
+       // {
+            Debug.Log("Buying Upgrade");
             switch (path)
             {
                 case 1: // TOP PATH UPGRADE
@@ -76,12 +77,10 @@ public class SpinnerUpgradeManager : UpgradeMaster
                     switch (index)
                     {
                         case 1:
-                            foreach (var b in blades)
-                                b.GetComponent<Attack_Spinner>().SetDamage(damageUpgrade1Multiplier);
+                                gameObject.GetComponent<Attack_Spinner>().SetDamage(damageUpgrade1Multiplier);
                             break;
                         case 2:
-                            foreach (var b in blades)
-                                b.GetComponent<Attack_Spinner>().SetDamage(damageUpgrade2Multiplier);
+                                gameObject.GetComponent<Attack_Spinner>().SetDamage(damageUpgrade2Multiplier);
                             break;
                         case 3:
 
@@ -94,8 +93,12 @@ public class SpinnerUpgradeManager : UpgradeMaster
             }
 
             return true;
-        }
-        else return false;
+       // }
+       // else
+       // {
+        //    Debug.Log("Could not Upgrade");
+         //   return false;
+      //  }
 
     }
 

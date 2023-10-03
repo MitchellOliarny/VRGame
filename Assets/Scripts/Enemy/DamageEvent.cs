@@ -29,8 +29,9 @@ public class DamageEvent : MonoBehaviour
     {
         if (index == indexer.Index)
         {
+            Debug.Log("raw DMG " + damage);
             // If enemy is reinforced multiply damage by .5f
-            if (mod.GetReinforced) damage *= .5f;
+            if (mod.GetReinforced) { damage *= .5f; Debug.Log("new DMG " + damage); }
 
             // Damage enemy
             health.DamageHealth(damage);

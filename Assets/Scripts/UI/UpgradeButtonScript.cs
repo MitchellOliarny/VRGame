@@ -14,7 +14,7 @@ public class UpgradeButtonScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI upgradeCost;
 
 
-    private void Upgrade()
+    public void Upgrade()
     {
         switch (upgradePath)
         {
