@@ -6,6 +6,7 @@ using PathCreation.Examples;
 public class SlimeHealth : Health
 {
     [Header("SCRIPTS")]
+    [SerializeField] private EventManagerScript manager;
     [SerializeField] private DamageEvent damageEvent;
     [SerializeField] private EnemySpawn enemySpawn;
     [SerializeField] private ColorManager colorManager;
@@ -13,6 +14,7 @@ public class SlimeHealth : Health
     [SerializeField] private EnemySettings settings;
     [SerializeField] private PathFollower follower;
     [SerializeField] private ParentDestroyer parentDestroyer;
+    [SerializeField] private Transform enemyScale;
 
     [Header("HEALTH")]
     [SerializeField] private float _maxHealth; // Max health of entity
@@ -27,10 +29,9 @@ public class SlimeHealth : Health
 
     [Header("ENEMY SCRIPTABLES")]
     private EnemyScriptableDatabase scriptableDatabase;
-    [SerializeField] private DeathParticleDatabase particleDatabase;
 
     [Header("DEATH PARTICLES")]
-    [SerializeField] private ParticleSystem[] deathParticles;
+    [SerializeField] private ParticleSystem deathParticles;
 
     [SerializeField] private Vector3 DeathLocation;
 
@@ -42,9 +43,8 @@ public class SlimeHealth : Health
     // Start is called before the first frame update
     void Start()
     {
-
+        manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<EventManagerScript>();
         scriptableDatabase = EnemyScriptableDatabase.Instance;
-        deathParticles = particleDatabase.GetParticleArray;
         enemySpawn = EnemySpawn.Instance;
         moneyDrop = enemySpawn.GetComponent<MoneyDrop>();
         colorManager = GetComponent<ColorManager>();
@@ -54,8 +54,9 @@ public class SlimeHealth : Health
         currentHealth = _maxHealth;
         ChildLifeTime = settings.GetChildLifeTime;
 
+        deathParticles = settings.GetDeathParticle;
         tier = settings.GetTier;
-        GetComponentInParent<Transform>().localScale = new Vector3(0.5f * settings.GetScale, 0.5f * settings.GetScale, 0.5f * settings.GetScale);
+        enemyScale.localScale = new Vector3(0.5f * settings.GetScale, 0.5f * settings.GetScale, 0.5f * settings.GetScale);
 
         GetComponent<MeshRenderer>().material = colorManager.GetMaterial(tier);
     }
@@ -71,7 +72,8 @@ public class SlimeHealth : Health
     {
         if (currentHealth <= 0)
         {
-            EventManagerScript.MoneyDrop(settings.GetCashDrop(0));
+            manager.MoneyDrop(settings.GetCashDrop);
+            deathParticles.Play();
 
             if (colorManager.DecreaseColor(tier) != null)
             {
@@ -79,7 +81,8 @@ public class SlimeHealth : Health
                 settings = colorManager.DecreaseColor(tier);
                 tier = settings.GetTier;
                 follower.UpdateSpeed(settings.GetSpeed);
-                GetComponentInParent<Transform>().localScale = new Vector3(0.5f * settings.GetScale, 0.5f * settings.GetScale, 0.5f * settings.GetScale);
+                enemyScale.localScale = new Vector3(0.5f * settings.GetScale, 0.5f * settings.GetScale, 0.5f * settings.GetScale);
+                deathParticles = settings.GetDeathParticle;
                 GetComponent<MeshRenderer>().material = colorManager.GetMaterial(tier);
                 currentHealth = 1;
             }
@@ -94,7 +97,6 @@ public class SlimeHealth : Health
 
                 fullDead = true;
             }
-            //TODO: Create Death Effect
 
         }
     }

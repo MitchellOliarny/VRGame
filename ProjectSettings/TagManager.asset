@@ -20,6 +20,7 @@ TagManager:
   - floor
   - eventmanager
   - projectile
+  - Manager
   layers:
   - Default
   - TransparentFX

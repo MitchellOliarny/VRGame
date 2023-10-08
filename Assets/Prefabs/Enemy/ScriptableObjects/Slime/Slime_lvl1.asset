@@ -19,4 +19,4 @@ MonoBehaviour:
   ChildLifeTime: 0.5
   cashDrop: 1
   material: {fileID: 2100000, guid: eb2b500d32a025b4491497aba71248cb, type: 2}
-  cashArray: 0100000001000000020000000200000002000000020000000200000002000000
+  deathParticle: {fileID: 2845586737769048895, guid: 3bde2c8923e5c5b4b9e6054b6464ce9f, type: 3}

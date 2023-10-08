@@ -12,7 +12,14 @@ public class UpgradeButtonScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI upgradeName;
     [SerializeField] private TextMeshProUGUI upgradeDescrip;
     [SerializeField] private TextMeshProUGUI upgradeCost;
+    [SerializeField] private TextMeshProUGUI sell;
 
+    private float reducedSellPrice;
+
+    private void Start()
+    {
+        ChangeSellPrice(upgrader.GetSellPrice);
+    }
 
     public void Upgrade()
     {
@@ -28,6 +35,13 @@ public class UpgradeButtonScript : MonoBehaviour
                 upgrader.UpgradePath3(upgradeIndex);
                 break;
         }
+        ChangeSellPrice(upgrader.GetSellPrice);
+    }
+
+    public void Sell()
+    {
+        //Sell for reducedSellPrice
+        upgrader.SellTower();
     }
 
 
@@ -39,4 +53,7 @@ public class UpgradeButtonScript : MonoBehaviour
     public void SetUpgradeName(string i) => upgradeName.text = $"{i}";
     public void SetUpgradeDescrip(string i) => upgradeDescrip.text = $"{i}";
     public void SetUpgradeCost(int i) => upgradeCost.text = "Cost: " + i;
+
+    public void ChangeSellPrice(int i) { reducedSellPrice = i * 0.7f; SetSellPrice(reducedSellPrice); }
+    private void SetSellPrice(float i) => sell.text = "Sell: " + i;
 }

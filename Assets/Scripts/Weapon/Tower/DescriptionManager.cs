@@ -6,6 +6,7 @@ public class DescriptionManager : MonoBehaviour
 {
     [Header("TOWER DESCRIPTIONS")]
     [SerializeField] private string towerName;
+    [SerializeField] private int buyPrice;
 
     [Header("UPGRADE DESCRIPTIONS PATH 1")]
 
@@ -35,5 +36,7 @@ public class DescriptionManager : MonoBehaviour
     public string GetBottomPathName(int i) => path3UpgradeNames[i];
     public string GetBottomPathDescription(int i) => path3UpgradeDescrips[i];
     public int GetBottomPathCost(int i) => path3UpgradeCosts[i];
+
+    public int GetBuyPrice => buyPrice;
 
 }

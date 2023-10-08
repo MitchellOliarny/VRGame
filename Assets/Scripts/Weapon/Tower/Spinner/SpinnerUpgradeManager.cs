@@ -3,6 +3,8 @@ using UnityEngine;
 public class SpinnerUpgradeManager : UpgradeMaster
 {
 
+    [SerializeField] private EventManagerScript eventManager;
+
     [Header("UPGRADES STATS PATH 1")]
     [SerializeField] private float spinSpeedUpgrade1Multiplier;
     [SerializeField] private float spinSpeedUpgrade2Multiplier;
@@ -26,6 +28,10 @@ public class SpinnerUpgradeManager : UpgradeMaster
 
     [SerializeField] private DescriptionManager manager;
 
+    private void Start()
+    {
+        eventManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<EventManagerScript>();
+    }
     public override bool Upgrade(int path, int index)
     {
        // if (CanBuy(path, index))
@@ -110,7 +116,7 @@ public class SpinnerUpgradeManager : UpgradeMaster
             case 1:
                 if (MoneyDrop.Instance.GetCash() >= manager.GetTopPathCost(upgrade - 1))
                 {
-                    EventManagerScript.MoneyReduce(manager.GetTopPathCost(upgrade - 1));
+                    eventManager.MoneyReduce(manager.GetTopPathCost(upgrade - 1));
                     return true;
                 }
                 else return false;
@@ -118,14 +124,14 @@ public class SpinnerUpgradeManager : UpgradeMaster
             case 2:
                 if (MoneyDrop.Instance.GetCash() >= manager.GetMiddlePathCost(upgrade - 1))
                 {
-                    EventManagerScript.MoneyReduce(manager.GetMiddlePathCost(upgrade - 1));
+                    eventManager.MoneyReduce(manager.GetMiddlePathCost(upgrade - 1));
                     return true;
                 }
                 else return false;
             case 3:
                 if (MoneyDrop.Instance.GetCash() >= manager.GetBottomPathCost(upgrade - 1))
                 {
-                    EventManagerScript.MoneyReduce(manager.GetBottomPathCost(upgrade - 1));
+                    eventManager.MoneyReduce(manager.GetBottomPathCost(upgrade - 1));
                     return true;
                 }
                 else return false;

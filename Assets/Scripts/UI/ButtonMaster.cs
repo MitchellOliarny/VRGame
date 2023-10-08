@@ -10,6 +10,7 @@ public class ButtonMaster : MonoBehaviour
     [Header("MAX UPGRADES")]
     [SerializeField] private int MAXUPGRADES = 7;
     [SerializeField] private int currentUpgrades;
+    [SerializeField] private int sellPrice = 0;
 
     [Header("BUTTONS")]
     [SerializeField] private GameObject[] upgradeBtn1, upgradeBtn2, upgradeBtn3;
@@ -21,6 +22,7 @@ public class ButtonMaster : MonoBehaviour
             upgrader = GetComponentInParent<UpgradeMaster>();
         }
         SetDescriptions();
+        sellPrice += descriptions.GetBuyPrice;
     }
 
     public void UpgradePath1(int upgrade)
@@ -35,6 +37,7 @@ public class ButtonMaster : MonoBehaviour
         {
             currentUpgrades++;
 
+            sellPrice += descriptions.GetTopPathCost(upgrade - 1);
             ButtonDeactivator(upgradeBtn1[upgrade - 1]);
 
             if (upgrade < upgradeBtn1.Length)
@@ -53,6 +56,7 @@ public class ButtonMaster : MonoBehaviour
         {
             currentUpgrades++;
 
+            sellPrice += descriptions.GetMiddlePathCost(upgrade - 1);
             ButtonDeactivator(upgradeBtn2[upgrade - 1]);
 
             if (upgrade < upgradeBtn2.Length)
@@ -71,6 +75,7 @@ public class ButtonMaster : MonoBehaviour
         {
             currentUpgrades++;
 
+            sellPrice += descriptions.GetBottomPathCost(upgrade - 1);
             ButtonDeactivator(upgradeBtn3[upgrade - 1]);
 
             if (upgrade < upgradeBtn3.Length)
@@ -114,6 +119,9 @@ public class ButtonMaster : MonoBehaviour
     public GameObject[] GetButtonsPath1() => upgradeBtn1;
     public GameObject[] GetButtonsPath2() => upgradeBtn2;
     public GameObject[] GetButtonsPath3() => upgradeBtn3;
+    public int GetSellPrice => sellPrice;
+
+    public void SellTower() { Destroy(descriptions.gameObject); }
 
     #endregion
 

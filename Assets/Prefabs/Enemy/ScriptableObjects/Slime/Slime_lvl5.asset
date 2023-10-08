@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Slime_lvl5
   m_EditorClassIdentifier: 
   tier: 5
-  scale: 1.35
+  scale: 1.75
   health: 1
   speed: 7.5
   ChildLifeTime: 0.5
   cashDrop: 8
   material: {fileID: 2100000, guid: a3acf851b0346ce4ca6428f3f4b1af11, type: 2}
-  cashArray: 0100000001000000020000000200000002000000020000000200000002000000
+  deathParticle: {fileID: 7870527370726021395, guid: ef8c102a6b6edf04cb389de396781854, type: 3}

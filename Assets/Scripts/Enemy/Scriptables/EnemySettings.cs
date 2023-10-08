@@ -11,16 +11,19 @@ public class EnemySettings : ScriptableObject
     [SerializeField] private float ChildLifeTime;
     [SerializeField] private int cashDrop;
     [SerializeField] private Material material;
-    [SerializeField] private int[] cashArray;
-    
+
+    [SerializeField] private ParticleSystem deathParticle;
+
 
     public float GetHealth => health;
     public float GetSpeed => speed;
-    public int GetCashDrop(int i) => cashArray[i];
+    public int GetCashDrop => cashDrop;
     public Material GetMaterial => material;
     public float GetChildLifeTime => ChildLifeTime;
 
     public int GetTier => tier;
 
     public float GetScale => scale;
+
+    public ParticleSystem GetDeathParticle => deathParticle;
 }

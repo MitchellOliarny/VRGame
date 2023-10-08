@@ -1,9 +1,13 @@
 using System;
 using UnityEngine;
 
+
 public class EventManagerScript : MonoBehaviour
 {
     public static EventManagerScript Instance;
+
+    [SerializeField] private int money;
+    [SerializeField] private int lives;
 
     private void Awake()
     {
@@ -27,15 +31,13 @@ public class EventManagerScript : MonoBehaviour
     #endregion
 
     #region MONEY
-    public static event Action<int> OnMoneyDrop;
-    public static void MoneyDrop(int money) { OnMoneyDrop?.Invoke(money); }
+    public void MoneyDrop(int amount) { money += amount; }
 
-    public static event Action<int> OnMoneyReduce;
-    public static void MoneyReduce(int money) { OnMoneyReduce?.Invoke(money); }
+    public void MoneyReduce(int amount) { money -= amount; }
     #endregion
 
     #region SHOP
-    public static event Action OnItemBuy;
-    public static void ItemBuy() { OnItemBuy?.Invoke(); }
+    
     #endregion
 }
+

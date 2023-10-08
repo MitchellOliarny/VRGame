@@ -67,7 +67,14 @@ public class BulletScript : MonoBehaviour
                 EventManagerScript.EnemyHit(other.GetComponentInParent<EnemyArrayIndex>().Index, _damage);
         }
 
-        if (_canHit > pierceMod || !_canRichochet) Destroy(gameObject);
+        if (_canHit > pierceMod) Destroy(gameObject);
+    }
+    private void OnCollisionEnter(Collision collision)
+    { 
+        if (collision.collider.CompareTag("ground") && !_canRichochet)
+        {
+            Destroy(gameObject);
+        }
     }
 
     //-- SET DAMAGE --\\

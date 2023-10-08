@@ -6,6 +6,7 @@ using PathCreation.Examples;
 public class OgreHealth : Health
 {
     [Header("SCRIPTS")]
+    [SerializeField] private EventManagerScript manager;
     [SerializeField] private DamageEvent damageEvent;
     [SerializeField] private EnemySpawn enemySpawn;
     [SerializeField] private MoneyDrop moneyDrop;
@@ -36,6 +37,7 @@ public class OgreHealth : Health
     // Start is called before the first frame update
     void Start()
     {
+        manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<EventManagerScript>();
         scriptableDatabase = EnemyScriptableDatabase.Instance;
         //deathParticles = particleDatabase.GetParticleArray;
         enemySpawn = EnemySpawn.Instance;
@@ -59,7 +61,7 @@ public class OgreHealth : Health
             damage = 0;
             StartCoroutine(DespawnEnemy(gameObject, .1f));
 
-            EventManagerScript.MoneyDrop(settings.GetCashDrop(0));
+            manager.MoneyDrop(settings.GetCashDrop);
 
             if (parentDestroyer != null) parentDestroyer.IsChildDead = true;
             if (gameObject.GetComponent<Animator>() != null) gameObject.GetComponent<Animator>().enabled = false;
