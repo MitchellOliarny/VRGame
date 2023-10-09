@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.14648856, g: 0.3670877, b: 0.57333535, a: 1}
+  m_IndirectSpecularColor: {r: 0.14703594, g: 0.36398482, b: 0.57992315, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -957,7 +957,7 @@ PrefabInstance:
     - target: {fileID: 271543840478481227, guid: 0b72eb85366138444907ef821d9a0b00, type: 3}
       propertyPath: m_Colliders.Array.data[0]
       value: 
-      objectReference: {fileID: 2106078929}
+      objectReference: {fileID: 1767874786}
     - target: {fileID: 4190317856643159954, guid: 0b72eb85366138444907ef821d9a0b00, type: 3}
       propertyPath: m_Name
       value: Katana
@@ -1017,7 +1017,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8015838566040119717, guid: 0b72eb85366138444907ef821d9a0b00, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1767874786}
   m_SourcePrefab: {fileID: 100100000, guid: 0b72eb85366138444907ef821d9a0b00, type: 3}
 --- !u!1 &961622046
 GameObject:
@@ -2170,6 +2173,32 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621643660}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1767874782 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8015838566040119717, guid: 0b72eb85366138444907ef821d9a0b00, type: 3}
+  m_PrefabInstance: {fileID: 805251000}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1767874786
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767874782}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1852413322
 GameObject:
   m_ObjectHideFlags: 0
