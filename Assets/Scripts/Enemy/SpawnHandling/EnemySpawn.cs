@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using PathCreation;
 using PathCreation.Examples;
-
+using TMPro;
 public class EnemySpawn : MonoBehaviour
 {
     [Header("SCRIPTS")]
@@ -24,6 +24,10 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] private float enemySpawnTimer; // Enemy Spawn Timer
     [SerializeField] private float startingEnemyTimer; // Starting Enemy Timer
 
+    [Header("UI")]
+    [SerializeField] private TextMeshProUGUI WavesText;
+
+
     private int index = 0;
 
     private void Awake()
@@ -35,6 +39,7 @@ public class EnemySpawn : MonoBehaviour
     void Start()
     {
         handler.WaveCounter(0); // Set Wave Count to zero
+        WavesText.text = "Wave #" + (handler.GetActiveWave() + 1);
         path = GameObject.FindGameObjectWithTag("path").GetComponent<PathCreator>(); // Set Path to scene path
 
         _enemyHolderArray = handler.GetEnemiesForWave(); // Add Wave Handler Slimes to Holder Array
@@ -54,6 +59,7 @@ public class EnemySpawn : MonoBehaviour
         {
             handler.WaveCounter(handler.GetActiveWave() + 1); // Add one to Wave Counter
 
+            WavesText.text = "Wave #" + (handler.GetActiveWave() + 1);
             _enemyHolderArray.AddRange(handler.GetEnemiesForWave()); // Add Wave Handler Slimes to Holder Array
             startingEnemyTimer = handler.GetWaveTimer(); // Set Timer to Wave Hanlder Timer
             modifierArray.AddRange(handler.GetEnemyModifiers()); // Set Modifier Array to Wave Handler Modifier Array

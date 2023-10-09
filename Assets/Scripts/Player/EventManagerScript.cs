@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using TMPro;
 
 
 public class EventManagerScript : MonoBehaviour
@@ -7,11 +8,14 @@ public class EventManagerScript : MonoBehaviour
     public static EventManagerScript Instance;
 
     [SerializeField] private int money;
-    [SerializeField] private int lives;
+    [SerializeField] private int startingCash;
 
+    [SerializeField] private TextMeshProUGUI MoneyText;
     private void Awake()
     {
         Instance = this;
+        money += startingCash;
+        MoneyText.text = "Coins: " + money;
     }
 
     #region LOSE CONDITION
@@ -31,9 +35,9 @@ public class EventManagerScript : MonoBehaviour
     #endregion
 
     #region MONEY
-    public void MoneyDrop(int amount) { money += amount; }
+    public void MoneyDrop(int amount) { money += amount; MoneyText.text = "Coins: " + money; }
 
-    public void MoneyReduce(int amount) { money -= amount; }
+    public void MoneyReduce(int amount) { money -= amount; MoneyText.text = "Coins: " + money; }
     #endregion
 
     #region SHOP

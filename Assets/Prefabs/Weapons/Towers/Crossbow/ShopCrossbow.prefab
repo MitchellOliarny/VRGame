@@ -630,6 +630,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   miniTurret: {fileID: 6863055336892276385}
   Turret: {fileID: 1050155571538730361, guid: b82bfc0aff9394346b42de75479a22db, type: 3}
+  cost: 500
+  manager: {fileID: 0}
   turretRotation: {x: 0, y: 0, z: 0, w: 0}
   spawnOffset: 0
 --- !u!65 &7110526818082035170

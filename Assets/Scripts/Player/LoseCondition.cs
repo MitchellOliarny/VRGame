@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LoseCondition : MonoBehaviour
 {
     [SerializeField] private int playerHealth;
+    [SerializeField] private TextMeshProUGUI LivesText;
 
-
+    private void Start()
+    {
+        LivesText.text = "Lives: " + playerHealth;
+    }
 
     #region EVENT SYSTEM SUBSCRIBING
     private void OnEnable()
@@ -23,6 +28,6 @@ public class LoseCondition : MonoBehaviour
     private void OnEnemyReachEnd(int damage)
     {
         playerHealth -= damage;
-        Debug.Log(playerHealth);
+        LivesText.text = "Lives: " + playerHealth;
     }
 }

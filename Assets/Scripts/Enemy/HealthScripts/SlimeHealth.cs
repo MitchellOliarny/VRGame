@@ -19,7 +19,6 @@ public class SlimeHealth : Health
     [Header("HEALTH")]
     [SerializeField] private float _maxHealth; // Max health of entity
     [SerializeField] private float currentHealth; // Health holder value
-    [SerializeField] private int damage;
     [SerializeField] private int tier;
 
     [SerializeField] private float ChildLifeTime;
@@ -157,5 +156,5 @@ public class SlimeHealth : Health
         currentHealth = f;
     }
 
-    public override int GetDamageToPlayer => damage;
+    public override int GetDamageToPlayer => tier;
 }
