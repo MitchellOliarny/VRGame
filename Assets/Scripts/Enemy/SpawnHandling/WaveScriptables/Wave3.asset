@@ -40,3 +40,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f7c04d9a793a53b4b8a16bedf420e896, type: 2}
   SlimeModifierArray: []
   waveTimer: 0.33
+  waveEndCash: 225

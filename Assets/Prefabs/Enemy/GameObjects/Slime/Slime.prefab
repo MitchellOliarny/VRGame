@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -6082765515795072591}
   - component: {fileID: 1818371593436241382}
   - component: {fileID: 959563771618971487}
-  - component: {fileID: 811182649794091664}
+  - component: {fileID: 693945725605846574}
   m_Layer: 10
   m_Name: Slime
   m_TagString: enemy
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 0
---- !u!54 &811182649794091664
+--- !u!54 &693945725605846574
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5daf8607b2305df429210b4c287ad11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   damageEvent: {fileID: 6233356948405923663}
   enemySpawn: {fileID: 0}
   colorManager: {fileID: 262232610507713735}
@@ -261,7 +262,6 @@ MonoBehaviour:
   enemyScale: {fileID: 4194036173614519083}
   _maxHealth: 0
   currentHealth: 0
-  damage: 0
   tier: 0
   ChildLifeTime: 0
   hitSound: {fileID: 3919780548955193347}

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class UpgradeButtonScript : MonoBehaviour
@@ -7,6 +8,7 @@ public class UpgradeButtonScript : MonoBehaviour
     [SerializeField] private int upgradePath;
     [SerializeField] private ButtonMaster upgrader;
     [SerializeField] private GameObject child;
+    private Button button;
 
     [Header("BUTTON TEXT")]
     [SerializeField] private TextMeshProUGUI upgradeName;
@@ -19,6 +21,7 @@ public class UpgradeButtonScript : MonoBehaviour
     private void Start()
     {
         ChangeSellPrice(upgrader.GetSellPrice);
+        button = gameObject.GetComponent<Button>();
     }
 
     public void Upgrade()
@@ -40,14 +43,14 @@ public class UpgradeButtonScript : MonoBehaviour
 
     public void Sell()
     {
-        //Sell for reducedSellPrice
-        upgrader.SellTower();
+        upgrader.SellTower(reducedSellPrice);
     }
 
 
     public void ChildButtonState(bool state)
     {
         child.SetActive(state);
+        button.interactable = state;
     }
 
     public void SetUpgradeName(string i) => upgradeName.text = $"{i}";

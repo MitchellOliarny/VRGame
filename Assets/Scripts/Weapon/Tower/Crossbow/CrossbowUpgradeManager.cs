@@ -11,19 +11,16 @@ public class CrossbowUpgradeManager : UpgradeMaster
     
 
     [Header("UPGRADES STATS PATH 2")]
-    [SerializeField] private float damageUpgrade1Multiplier;
-    [SerializeField] private float damageUpgrade2Multiplier;
-
+    [SerializeField] private float damageUpgrade1Multiplier, damageUpgrade2Multiplier, damageUpgrade3Multiplier, damageUpgrade4Multiplier;
 
     [Header("UPGRADES STATS PATH 3")]
-    [SerializeField] private float rangeUpgrade1;
-    [SerializeField] private float rangeUpgrade2;
+    [SerializeField] private float rangeUpgrade1, rangeUpgrade2, rangeUpgrade3;
     [SerializeField] private bool increaseRangeDamage;
 
 
     [Header("UPGRADES OBJECTS")]
     [SerializeField] private TurretShoot _turretShoot;
-
+    [SerializeField] private Transform range;
 
     [Header("ANIMATOR")]
     [SerializeField] private Animator anim;
@@ -70,10 +67,10 @@ public class CrossbowUpgradeManager : UpgradeMaster
                             this.GetComponent<TurretShoot>().SetDamage(damageUpgrade2Multiplier);
                             break;
                         case 3:
-
+                            this.GetComponent<TurretShoot>().SetDamage(damageUpgrade3Multiplier);
                             break;
                         case 4:
-
+                            this.GetComponent<TurretShoot>().SetDamage(damageUpgrade4Multiplier);
                             break;
                     }
 
@@ -83,16 +80,16 @@ public class CrossbowUpgradeManager : UpgradeMaster
                     switch (index)
                     {
                         case 1:
-                            //increase range
+                            range.localScale = new Vector3(range.localScale.x * rangeUpgrade1, 0.01f, range.localScale.y * rangeUpgrade1);
                             break;
                         case 2:
-                            //increase range
+                            range.localScale = new Vector3(range.localScale.x * rangeUpgrade2, 0.01f, range.localScale.y * rangeUpgrade2);
                             break;
                         case 3:
                             _turretShoot.SetCamoDetect(true);
                             break;
                         case 4:
-
+                            range.localScale = new Vector3(range.localScale.x * rangeUpgrade3, 0.01f, range.localScale.y * rangeUpgrade3);
                             break;
                     }
                     break;
@@ -109,7 +106,7 @@ public class CrossbowUpgradeManager : UpgradeMaster
         switch (path)
         {
             case 1:
-                if (MoneyDrop.Instance.GetCash() >= manager.GetTopPathCost(upgrade - 1))
+                if (eventManager.GetMoney >= manager.GetTopPathCost(upgrade - 1))
                 {
                     eventManager.MoneyReduce(manager.GetTopPathCost(upgrade - 1));
                     return true;
@@ -117,14 +114,14 @@ public class CrossbowUpgradeManager : UpgradeMaster
                 else return false;
 
             case 2:
-                if (MoneyDrop.Instance.GetCash() >= manager.GetMiddlePathCost(upgrade - 1))
+                if (eventManager.GetMoney >= manager.GetMiddlePathCost(upgrade - 1))
                 {
                     eventManager.MoneyReduce(manager.GetMiddlePathCost(upgrade - 1));
                     return true;
                 }
                 else return false;
             case 3:
-                if (MoneyDrop.Instance.GetCash() >= manager.GetBottomPathCost(upgrade - 1))
+                if (eventManager.GetMoney >= manager.GetBottomPathCost(upgrade - 1))
                 {
                     eventManager.MoneyReduce(manager.GetBottomPathCost(upgrade - 1));
                     return true;

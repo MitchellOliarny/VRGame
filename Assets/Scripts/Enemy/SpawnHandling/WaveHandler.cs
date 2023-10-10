@@ -52,6 +52,8 @@ public class WaveHandler : ScriptableObject
     //-- GET ACTIVE WAVE --\\
     public int GetActiveWave() => wave;
 
+    public float GetWaveCash => AllWaves[wave].GetWaveCash;
+
     public int GetMaxWave { get { return AllWaves.Count; } }
 
     #endregion

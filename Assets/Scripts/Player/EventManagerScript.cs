@@ -7,7 +7,7 @@ public class EventManagerScript : MonoBehaviour
 {
     public static EventManagerScript Instance;
 
-    [SerializeField] private int money;
+    [SerializeField] private float money;
     [SerializeField] private int startingCash;
 
     [SerializeField] private TextMeshProUGUI MoneyText;
@@ -35,9 +35,11 @@ public class EventManagerScript : MonoBehaviour
     #endregion
 
     #region MONEY
-    public void MoneyDrop(int amount) { money += amount; MoneyText.text = "Coins: " + money; }
 
-    public void MoneyReduce(int amount) { money -= amount; MoneyText.text = "Coins: " + money; }
+    public float GetMoney => money;
+    public void MoneyDrop(float amount) { money += amount; MoneyText.text = "Coins: " + money; }
+
+    public void MoneyReduce(float amount) { money -= amount; MoneyText.text = "Coins: " + money; }
     #endregion
 
     #region SHOP

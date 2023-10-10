@@ -28,6 +28,10 @@ public class TurretSpawn : MonoBehaviour
     {
         gameObject.GetComponent<Rigidbody>().useGravity = true;
         UnFreezeOnPickUp();
+        if(manager.GetMoney < cost)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

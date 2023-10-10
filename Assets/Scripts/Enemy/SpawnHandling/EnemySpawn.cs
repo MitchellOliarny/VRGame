@@ -8,6 +8,7 @@ public class EnemySpawn : MonoBehaviour
     [Header("SCRIPTS")]
     [SerializeField] public static EnemySpawn Instance; // Instance of This Script
     [SerializeField] private WaveHandler handler; // Wave Handler
+    [SerializeField] private EventManagerScript manager; // Wave Handler
 
     [Header("TRANSFORM ARRAY")]
     [SerializeField] private PathCreator path; // Path Creator
@@ -38,6 +39,7 @@ public class EnemySpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<EventManagerScript>();
         handler.WaveCounter(0); // Set Wave Count to zero
         WavesText.text = "Wave #" + (handler.GetActiveWave() + 1);
         path = GameObject.FindGameObjectWithTag("path").GetComponent<PathCreator>(); // Set Path to scene path
@@ -58,6 +60,7 @@ public class EnemySpawn : MonoBehaviour
         if (_enemyArray.Count <= 0 && _enemyHolderArray.Count <= 0 && modifierArray.Count <= 0)
         {
             handler.WaveCounter(handler.GetActiveWave() + 1); // Add one to Wave Counter
+            manager.MoneyDrop(handler.GetWaveCash);
 
             WavesText.text = "Wave #" + (handler.GetActiveWave() + 1);
             _enemyHolderArray.AddRange(handler.GetEnemiesForWave()); // Add Wave Handler Slimes to Holder Array

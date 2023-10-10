@@ -1,11 +1,14 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.UI;
+using TMPro;
 
 public class ButtonMaster : MonoBehaviour
 {
     private DescriptionManager descriptions;
     private UpgradeMaster upgrader;
+    private EventManagerScript manager;
 
     [Header("MAX UPGRADES")]
     [SerializeField] private int MAXUPGRADES = 7;
@@ -14,9 +17,12 @@ public class ButtonMaster : MonoBehaviour
 
     [Header("BUTTONS")]
     [SerializeField] private GameObject[] upgradeBtn1, upgradeBtn2, upgradeBtn3;
+    [SerializeField] private TextMeshProUGUI upgradesText;
 
     private void Start()
     {
+        manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<EventManagerScript>();
+        upgradesText.text = "0 / " + MAXUPGRADES;
         if (GetComponentInParent<UpgradeMaster>() != null)
         {
             upgrader = GetComponentInParent<UpgradeMaster>();
@@ -24,6 +30,7 @@ public class ButtonMaster : MonoBehaviour
         SetDescriptions();
         sellPrice += descriptions.GetBuyPrice;
     }
+
 
     public void UpgradePath1(int upgrade)
     {
@@ -88,17 +95,17 @@ public class ButtonMaster : MonoBehaviour
         foreach (GameObject g in upgradeBtn1)
         {
             g.transform.localScale = new Vector3(1f, 1f, 1f);
-            g.SetActive(false);
+            g.GetComponent<UpgradeButtonScript>().ChildButtonState(false);
         }
         foreach (GameObject g in upgradeBtn2)
         {
             g.transform.localScale = new Vector3(1f, 1f, 1f);
-            g.SetActive(false);
+            g.GetComponent<UpgradeButtonScript>().ChildButtonState(false);
         }
         foreach (GameObject g in upgradeBtn3)
         {
             g.transform.localScale = new Vector3(1f, 1f, 1f);
-            g.SetActive(false);
+            g.GetComponent<UpgradeButtonScript>().ChildButtonState(false);
         }
     }
 
@@ -111,7 +118,9 @@ public class ButtonMaster : MonoBehaviour
 
     private void ButtonDeactivator(GameObject button)
     {
+        upgradesText.text = currentUpgrades + " / " + MAXUPGRADES;
         button.transform.localScale = new Vector3(1f, 1f, 1f);
+        button.GetComponent<Image>().color = new Color32(0, 248, 70, 255);
         button.GetComponent<UpgradeButtonScript>().ChildButtonState(false);
     }
 
@@ -121,7 +130,7 @@ public class ButtonMaster : MonoBehaviour
     public GameObject[] GetButtonsPath3() => upgradeBtn3;
     public int GetSellPrice => sellPrice;
 
-    public void SellTower() { Destroy(descriptions.gameObject); }
+    public void SellTower(float i) { Destroy(descriptions.gameObject); manager.MoneyDrop(i); }
 
     #endregion
 

@@ -116,15 +116,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aa8502f9f1b9af4b9ce6eeed59260f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventManager: {fileID: 0}
   pierceUpgrade1: 1
   pierceUpgrade2: 3
   pierceUpgrade3: 999999999
   damageUpgrade1Multiplier: 1.15
   damageUpgrade2Multiplier: 1.2
+  damageUpgrade3Multiplier: 1.5
+  damageUpgrade4Multiplier: 2
   rangeUpgrade1: 1.1
-  rangeUpgrade2: 1.2
+  rangeUpgrade2: 1.1
+  rangeUpgrade3: 1.5
   increaseRangeDamage: 0
   _turretShoot: {fileID: -1220745912934894342}
+  range: {fileID: 3932244012054288562}
   anim: {fileID: 9135431545533875961}
   manager: {fileID: 7386779233655727871}
 --- !u!114 &7386779233655727871
@@ -156,12 +161,12 @@ MonoBehaviour:
   - Increase Damage
   - More Damage
   - Armor Piercing Arrows
-  - CHANGE ME
+  - Diamond Tipped Arrows
   path2UpgradeDescrips:
   - +15% Damage
   - +20%  Damage
-  - Double Damage to Reinforced Enemies
-  - CHANGE ME
+  - +50%  Damage
+  - +100%  Damage
   path2UpgradeCosts: 96000000fa0000009001000000000000
   path3UpgradeNames:
   - Increased Range
@@ -172,7 +177,7 @@ MonoBehaviour:
   - +10% Range
   - +10% More Range
   - Crossbow Can Now See Invisible Enemies
-  - The Farther the Shot, The Greater the Damage
+  - +50% More Range
   path3UpgradeCosts: 960000002c0100009001000020030000
 --- !u!114 &5020623668352292715
 MonoBehaviour:
@@ -1204,6 +1209,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1063854355702125406, guid: 1297ab5b2b797914a847a651722b9e4b, type: 3}
+      propertyPath: m_margin.z
+      value: 0.3481359
+      objectReference: {fileID: 0}
+    - target: {fileID: 1090373001995785927, guid: 1297ab5b2b797914a847a651722b9e4b, type: 3}
+      propertyPath: m_PokeFollowTransform
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1107351965469508166, guid: 1297ab5b2b797914a847a651722b9e4b, type: 3}
       propertyPath: m_Layer
       value: 2
@@ -1328,6 +1341,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3678916312885117862, guid: 1297ab5b2b797914a847a651722b9e4b, type: 3}
+      propertyPath: sellPrice
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678916312885117862, guid: 1297ab5b2b797914a847a651722b9e4b, type: 3}
+      propertyPath: upgradesText
+      value: 
+      objectReference: {fileID: 4186602226356521401}
     - target: {fileID: 3679508515985722314, guid: 1297ab5b2b797914a847a651722b9e4b, type: 3}
       propertyPath: m_Layer
       value: 2
@@ -1368,6 +1389,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4198467719336349132, guid: 1297ab5b2b797914a847a651722b9e4b, type: 3}
+      propertyPath: m_PokeFollowTransform
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4262584866960582066, guid: 1297ab5b2b797914a847a651722b9e4b, type: 3}
       propertyPath: m_Layer
       value: 2
@@ -1400,6 +1425,10 @@ PrefabInstance:
       propertyPath: m_PokeFollowTransform
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5000601055095067623, guid: 1297ab5b2b797914a847a651722b9e4b, type: 3}
+      propertyPath: m_PokeFollowTransform
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5084230709637799017, guid: 1297ab5b2b797914a847a651722b9e4b, type: 3}
       propertyPath: m_Layer
       value: 2
@@ -1427,6 +1456,14 @@ PrefabInstance:
     - target: {fileID: 5570816673912418605, guid: 1297ab5b2b797914a847a651722b9e4b, type: 3}
       propertyPath: m_Layer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5606154527397138466, guid: 1297ab5b2b797914a847a651722b9e4b, type: 3}
+      propertyPath: m_PokeFollowTransform
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5837100440560417701, guid: 1297ab5b2b797914a847a651722b9e4b, type: 3}
+      propertyPath: m_PokeFollowTransform
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5885820602572689639, guid: 1297ab5b2b797914a847a651722b9e4b, type: 3}
       propertyPath: m_Layer
@@ -1675,6 +1712,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7402681652632828937, guid: 1297ab5b2b797914a847a651722b9e4b, type: 3}
   m_PrefabInstance: {fileID: 6777292023705669317}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4186602226356521401 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7211401801277867900, guid: 1297ab5b2b797914a847a651722b9e4b, type: 3}
+  m_PrefabInstance: {fileID: 6777292023705669317}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5862279614210730557 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1105289629144966392, guid: 1297ab5b2b797914a847a651722b9e4b, type: 3}

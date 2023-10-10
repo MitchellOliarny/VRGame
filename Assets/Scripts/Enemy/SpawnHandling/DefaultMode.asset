@@ -20,6 +20,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2790ca3654f2bb34cba1397788632809, type: 2}
   - {fileID: 11400000, guid: 6efd1f71e651a7a40b1b4c7627bf8cdc, type: 2}
   - {fileID: 11400000, guid: db7f6cf779c520f45a8b336c6cf96a55, type: 2}
+  - {fileID: 11400000, guid: c0cc044d6053114409311f670b488555, type: 2}
+  - {fileID: 11400000, guid: 4fdc18235f9beaa448a90eaee47d9ef7, type: 2}
   currentWave: []
   Slime: {fileID: 1263016102349382469, guid: a148ff497ca63df4aa3b716c864ff74e, type: 3}
   tiers: []
