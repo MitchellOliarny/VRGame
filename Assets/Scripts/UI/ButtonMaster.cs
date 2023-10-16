@@ -19,6 +19,8 @@ public class ButtonMaster : MonoBehaviour
     [SerializeField] private GameObject[] upgradeBtn1, upgradeBtn2, upgradeBtn3;
     [SerializeField] private TextMeshProUGUI upgradesText;
 
+    private int currentTop = 0, currentMiddle = 0, currentBottom = 0;
+
     private void Start()
     {
         manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<EventManagerScript>();
@@ -31,6 +33,37 @@ public class ButtonMaster : MonoBehaviour
         sellPrice += descriptions.GetBuyPrice;
     }
 
+    private void Update()
+    {
+            if (manager.GetMoney < descriptions.GetTopPathCost(currentTop))
+            {
+                upgradeBtn1[currentTop].GetComponent<Image>().color = new Color32(207, 24, 24, 255);
+            }
+            else
+            {
+                upgradeBtn1[currentTop].GetComponent<Image>().color = new Color32(0, 181, 255, 255);
+            }
+
+            if (manager.GetMoney < descriptions.GetMiddlePathCost(currentMiddle))
+            {
+                upgradeBtn2[currentMiddle].GetComponent<Image>().color = new Color32(207, 24, 24, 255);
+            }
+            else
+            {
+                upgradeBtn2[currentMiddle].GetComponent<Image>().color = new Color32(0, 181, 255, 255);
+            }
+
+
+
+        if (manager.GetMoney < descriptions.GetBottomPathCost(currentBottom))
+        {
+            upgradeBtn3[currentBottom].GetComponent<Image>().color = new Color32(207, 24, 24, 255);
+        }
+        else
+        {
+            upgradeBtn3[currentBottom].GetComponent<Image>().color = new Color32(0, 181, 255, 255);
+        }
+    }
 
     public void UpgradePath1(int upgrade)
     {
@@ -43,7 +76,7 @@ public class ButtonMaster : MonoBehaviour
         if (upgrader.Upgrade(1, upgrade))
         {
             currentUpgrades++;
-
+            currentTop += 1;
             sellPrice += descriptions.GetTopPathCost(upgrade - 1);
             ButtonDeactivator(upgradeBtn1[upgrade - 1]);
 
@@ -62,7 +95,7 @@ public class ButtonMaster : MonoBehaviour
         if (upgrader.Upgrade(2, upgrade))
         {
             currentUpgrades++;
-
+            currentMiddle += 1;
             sellPrice += descriptions.GetMiddlePathCost(upgrade - 1);
             ButtonDeactivator(upgradeBtn2[upgrade - 1]);
 
@@ -81,7 +114,7 @@ public class ButtonMaster : MonoBehaviour
         if (upgrader.Upgrade(3, upgrade))
         {
             currentUpgrades++;
-
+            currentBottom += 1;
             sellPrice += descriptions.GetBottomPathCost(upgrade - 1);
             ButtonDeactivator(upgradeBtn3[upgrade - 1]);
 

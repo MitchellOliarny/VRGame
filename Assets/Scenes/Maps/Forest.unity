@@ -123,6 +123,26 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &133341423 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7756940219662426707, guid: 0b72eb85366138444907ef821d9a0b00, type: 3}
+  m_PrefabInstance: {fileID: 1568322607}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &133341428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133341423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39b4341cb91a7c441b30efb79165d28a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FORWARD: 1
+  UP: 1
+  RIGHT: 1
 --- !u!1 &192205613
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,6 +924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handler: {fileID: 11400000, guid: bdbef128b78775f45b426542d341de4f, type: 2}
+  manager: {fileID: 0}
   path: {fileID: 322637451}
   Slime: {fileID: 1263016102349382469, guid: a148ff497ca63df4aa3b716c864ff74e, type: 3}
   _enemyHolderArray: []
@@ -2030,7 +2051,10 @@ PrefabInstance:
     - {fileID: 3495452612674764611, guid: 0b72eb85366138444907ef821d9a0b00, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7756940219662426707, guid: 0b72eb85366138444907ef821d9a0b00, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 133341428}
   m_SourcePrefab: {fileID: 100100000, guid: 0b72eb85366138444907ef821d9a0b00, type: 3}
 --- !u!1 &1621643660
 GameObject:

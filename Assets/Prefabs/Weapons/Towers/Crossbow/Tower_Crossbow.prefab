@@ -124,8 +124,8 @@ MonoBehaviour:
   damageUpgrade2Multiplier: 1.2
   damageUpgrade3Multiplier: 1.5
   damageUpgrade4Multiplier: 2
-  rangeUpgrade1: 1.1
-  rangeUpgrade2: 1.1
+  rangeUpgrade1: 1.2
+  rangeUpgrade2: 1.2
   rangeUpgrade3: 1.5
   increaseRangeDamage: 0
   _turretShoot: {fileID: -1220745912934894342}
@@ -174,8 +174,8 @@ MonoBehaviour:
   - Special Seeing Arrows
   - All The Range
   path3UpgradeDescrips:
-  - +10% Range
-  - +10% More Range
+  - +20% Range
+  - +20% More Range
   - Crossbow Can Now See Invisible Enemies
   - +50% More Range
   path3UpgradeCosts: 960000002c0100009001000020030000

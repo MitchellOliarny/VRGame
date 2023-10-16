@@ -80,16 +80,16 @@ public class CrossbowUpgradeManager : UpgradeMaster
                     switch (index)
                     {
                         case 1:
-                            range.localScale = new Vector3(range.localScale.x * rangeUpgrade1, 0.01f, range.localScale.y * rangeUpgrade1);
+                            range.localScale = new Vector3(range.localScale.x * rangeUpgrade1, 0.01f, range.localScale.z * rangeUpgrade1);
                             break;
                         case 2:
-                            range.localScale = new Vector3(range.localScale.x * rangeUpgrade2, 0.01f, range.localScale.y * rangeUpgrade2);
+                            range.localScale = new Vector3(range.localScale.x * rangeUpgrade2, 0.01f, range.localScale.z * rangeUpgrade2);
                             break;
                         case 3:
                             _turretShoot.SetCamoDetect(true);
                             break;
                         case 4:
-                            range.localScale = new Vector3(range.localScale.x * rangeUpgrade3, 0.01f, range.localScale.y * rangeUpgrade3);
+                            range.localScale = new Vector3(range.localScale.x * rangeUpgrade3, 0.01f, range.localScale.z * rangeUpgrade3);
                             break;
                     }
                     break;
