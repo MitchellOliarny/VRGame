@@ -25,6 +25,7 @@ public class CallSeverScript : MonoBehaviour
     // NormalizeAxis is the normal of the plane
     public void CallSliceMethod(Collider other, Vector3 hitPoint)
     {
+
         Plane severingPlane;
 
         if (FORWARD) { severingPlane = new Plane(transform.forward, hitPoint); } // Sets NormalizeAxis to the Forward of attached object

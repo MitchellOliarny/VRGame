@@ -5,6 +5,9 @@ public class SpinnerBlade : MonoBehaviour
     [SerializeField] private int ID;
     [SerializeField] private Collider col;
     [SerializeField] private CallSeverScript callSever;
+
+    [SerializeField] bool sword;
+    [SerializeField] int damage;
     private void Start()
     {
         ID = transform.parent.parent.parent.gameObject.GetInstanceID();
@@ -16,10 +19,20 @@ public class SpinnerBlade : MonoBehaviour
         {
             // Checks for EnemyArrayIndex
             if (other.GetComponentInParent<EnemyArrayIndex>() != null)
+            {
                 // Sends Event OnBladeHit
                 // Takes the Index of the enemy
                 // Takes the Index of the Spinner
-                EventManagerScript.BladeHit(other.GetComponentInParent<EnemyArrayIndex>().Index, ID);
+                if (!sword)
+                {
+                    EventManagerScript.BladeHit(other.GetComponentInParent<EnemyArrayIndex>().Index, ID);
+                }
+                else
+                {
+                    Debug.Log("sword hit");
+                    EventManagerScript.EnemyHit(other.GetComponentInParent<EnemyArrayIndex>().Index, damage);
+                }
+            }
         }
     }
 
