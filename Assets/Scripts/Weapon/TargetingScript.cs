@@ -159,7 +159,6 @@ public class TargetingScript : MonoBehaviour
     public void RemoveEnemy(GameObject enemy) => _enemyArray.Remove(enemy);
     public int GetEnemyArrayLength() => _enemyArray.Count;
 
-
     #region TARGETING: GetFarthestEnemyOnPath(); GetShortestEnemyOnPath(); GetStrongestEnemy(); GetWeakestEnemy(); 
 
     //-- GET FARTHEST ENEMY ON PATH --\\
