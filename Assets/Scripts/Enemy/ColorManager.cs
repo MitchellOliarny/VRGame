@@ -10,12 +10,12 @@ public class ColorManager : MonoBehaviour
     [Header("HEALTH COLORS")]
     [SerializeField] private Material[] colors;
     [SerializeField] private EnemySettings[] _enemySettings;
-    public EnemySettings DecreaseColor(int tier)
+    public EnemySettings DecreaseColor(int tier, int pierce)
     {
-        int newTier = tier - 1;
+        int newTier = tier - pierce;
         if (newTier > 0)
         {
-            return _enemySettings[newTier - 1];
+            return _enemySettings[newTier - pierce];
         }
         else
         {
@@ -23,6 +23,6 @@ public class ColorManager : MonoBehaviour
         }
     }
 
-    public Material GetMaterial(int tier) => colors[(tier - 1)];
+    public Material GetMaterial(int tier, int pierce) => colors[(tier - pierce)];
 
 }

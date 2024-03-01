@@ -77,7 +77,8 @@ MonoBehaviour:
   _bullet: {fileID: 3667367210839867832, guid: 4efec050b7e27964babaf39ee59b59f4, type: 3}
   damage: 5
   speedMod: 0
-  pierce: 0
+  pierce: 2
+  projectilePassThrough: 0
   richochet: 0
   camoDetect: 0
   bulletScale: {x: 0, y: 0, z: 0}
@@ -117,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventManager: {fileID: 0}
-  pierceUpgrade1: 1
+  pierceUpgrade1: 2
   pierceUpgrade2: 3
   pierceUpgrade3: 999999999
   damageUpgrade1Multiplier: 1.15
@@ -145,17 +146,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerName: Crossbow
-  buyPrice: 0
+  buyPrice: 500
   path1UpgradeNames:
   - Pierce Upgrade
   - More Pierce
   - Bouncy Arrows
   - Most Peirce
   path1UpgradeDescrips:
-  - +1 Pierce
-  - +3 Pierce
-  - Arrows Richochet Now
-  - Unlimited Pierce
+  - Projectiles hit (+1) more enemies
+  - Projectiles remove (3) enemy layers
+  - Arrows Richochet off Objects
+  - Projectiles hit (Infinite) more enemies
   path1UpgradeCosts: c80000002c010000f4010000e8030000
   path2UpgradeNames:
   - Increase Damage
@@ -167,7 +168,7 @@ MonoBehaviour:
   - +20%  Damage
   - +50%  Damage
   - +100%  Damage
-  path2UpgradeCosts: 96000000fa0000009001000000000000
+  path2UpgradeCosts: 96000000fa0000009001000020030000
   path3UpgradeNames:
   - Increased Range
   - More Range

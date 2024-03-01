@@ -135,7 +135,7 @@ MonoBehaviour:
   _lifetime: 2.5
   _damage: 5
   _canHit: 0
-  pierceMod: 0
+  pierceMod: 1
   _canRichochet: 0
 --- !u!96 &-7685322547804364734
 TrailRenderer:

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5766466115246930530}
   - component: {fileID: 5178964777533885390}
   - component: {fileID: 1714022520481168463}
+  - component: {fileID: 4193248161027846369}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -81,6 +82,53 @@ AudioReverbZone:
   m_Density: 100
   m_LFReference: 250
   m_RoomLF: 0
+--- !u!114 &4193248161027846369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538628452712477642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1a3b2c32921724478347a33295db9db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerName: Smmoner
+  buyPrice: 750
+  path1UpgradeNames:
+  - Bat Whisperer
+  - Echo Location
+  - Swarm Hunting
+  - Death by a Thousand Cuts
+  path1UpgradeDescrips:
+  - Spawn +2 Bats to fight for you
+  - Spawn +1 Bats & Bats can Target Camo
+  - Spawn +1 Bats & 15% Increased Targeting Range
+  - Spawn +2 Bats & Bats break 2 enemy layers
+  path1UpgradeCosts: fa000000000000000000000000000000
+  path2UpgradeNames:
+  - 
+  - 
+  - 
+  - 
+  path2UpgradeDescrips:
+  - 
+  - 
+  - 
+  - 
+  path2UpgradeCosts: 00000000000000000000000000000000
+  path3UpgradeNames:
+  - 
+  - 
+  - 
+  - 
+  path3UpgradeDescrips:
+  - 
+  - 
+  - 
+  - 
+  path3UpgradeCosts: 00000000000000000000000000000000
 --- !u!1 &2262021022867977197
 GameObject:
   m_ObjectHideFlags: 0
@@ -5011,7 +5059,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7de378f25cf204cb6f6118877f4b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 1.5
+  targetSpace: 0.5
+  origin: {x: 0, y: 0, z: 0}
 --- !u!1 &3038994333470866176
 GameObject:
   m_ObjectHideFlags: 0
@@ -10043,7 +10093,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7de378f25cf204cb6f6118877f4b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 2.25
+  targetSpace: 0.5
+  origin: {x: 0, y: 0, z: 0}
 --- !u!1 &4874287494273200965
 GameObject:
   m_ObjectHideFlags: 0
@@ -15121,6 +15173,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  targetSpace: 0.5
+  origin: {x: 0, y: 0, z: 0}
 --- !u!1001 &3192860806873258791
 PrefabInstance:
   m_ObjectHideFlags: 0

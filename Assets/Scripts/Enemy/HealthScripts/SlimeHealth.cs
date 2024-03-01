@@ -57,33 +57,33 @@ public class SlimeHealth : Health
         tier = settings.GetTier;
         enemyScale.localScale = new Vector3(0.5f * settings.GetScale, 0.5f * settings.GetScale, 0.5f * settings.GetScale);
 
-        GetComponent<MeshRenderer>().material = colorManager.GetMaterial(tier);
+        GetComponent<MeshRenderer>().material = colorManager.GetMaterial(tier, 1);
     }
 
-    public override void DamageHealth(float damage)
+    public override void DamageHealth(float damage, int pierce)
     {
         hitSound.PlayOneShot(hitSound.clip, hitSound.volume);
         currentHealth -= damage;
-        CheckDeath();
+        CheckDeath(pierce);
     }
 
-    public override void CheckDeath()
+    public override void CheckDeath(int pierce)
     {
         if (currentHealth <= 0)
         {
             manager.MoneyDrop(settings.GetCashDrop);
             deathParticles.Play();
 
-            if (colorManager.DecreaseColor(tier) != null)
+            if (colorManager.DecreaseColor(tier, pierce) != null)
             {
-                Debug.Log(colorManager.DecreaseColor(tier));
-                settings = colorManager.DecreaseColor(tier);
+                Debug.Log(colorManager.DecreaseColor(tier, pierce));
+                settings = colorManager.DecreaseColor(tier, pierce);
                 tier = settings.GetTier;
                 follower.UpdateSpeed(settings.GetSpeed);
                 enemyScale.localScale = new Vector3(0.5f * settings.GetScale, 0.5f * settings.GetScale, 0.5f * settings.GetScale);
                 deathParticles = settings.GetDeathParticle;
-                GetComponent<MeshRenderer>().material = colorManager.GetMaterial(tier);
-                currentHealth = 1;
+                GetComponent<MeshRenderer>().material = colorManager.GetMaterial(tier, pierce);
+                currentHealth = settings.GetMaxHealth;
             }
             else
             {

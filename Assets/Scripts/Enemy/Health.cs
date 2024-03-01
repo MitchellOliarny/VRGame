@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public virtual void DamageHealth(float damage)
+    public virtual void DamageHealth(float damage, int pierce)
     {
 
     }
 
-    public virtual void CheckDeath()
+    public virtual void CheckDeath(int pierce)
     {
     }
 

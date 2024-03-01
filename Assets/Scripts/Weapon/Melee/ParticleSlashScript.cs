@@ -3,6 +3,7 @@ using UnityEngine;
 public class ParticleSlashScript : MonoBehaviour
 {
     [SerializeField] private float damage;
+    [SerializeField] int pierce;
 
 
     private void OnTriggerStay(Collider other)
@@ -14,7 +15,7 @@ public class ParticleSlashScript : MonoBehaviour
                 DamageEvent temp = other.GetComponent<DamageEvent>();
 
                 if (other.GetComponentInParent<EnemyArrayIndex>() != null)
-                    EventManagerScript.EnemyHit(other.GetComponentInParent<EnemyArrayIndex>().Index, damage);
+                    EventManagerScript.EnemyHit(other.GetComponentInParent<EnemyArrayIndex>().Index, damage, pierce);
 
                 if (temp.isDead())
                 {

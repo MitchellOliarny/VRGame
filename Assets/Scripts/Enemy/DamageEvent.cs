@@ -25,7 +25,7 @@ public class DamageEvent : MonoBehaviour
 
     //-- DAMAGE ENEMY --\\
     // FLOAT: Incoming Damage
-    public void DamageEnemy(int index, float damage)
+    public void DamageEnemy(int index, float damage, int pierce)
     {
         if (index == indexer.Index)
         {
@@ -34,7 +34,7 @@ public class DamageEvent : MonoBehaviour
             if (mod.GetReinforced) { damage *= .5f; Debug.Log("new DMG " + damage); }
 
             // Damage enemy
-            health.DamageHealth(damage);
+            health.DamageHealth(damage, pierce);
         }
     }
     //-- GET ENEMY MODIFIERS --\\

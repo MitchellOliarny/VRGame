@@ -434,7 +434,7 @@ MonoBehaviour:
   _bullet: {fileID: 8354826172809737440, guid: 1a585d8b2e5b61447a7b1af1caf74c3a, type: 3}
   damage: 0
   speedMod: 0
-  pierce: 0
+  pierce: 1
   richochet: 0
   camoDetect: 0
   bulletScale: {x: 0, y: 0, z: 0}
@@ -473,6 +473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerName: Turret
+  buyPrice: 0
   path1UpgradeNames:
   - 
   - 

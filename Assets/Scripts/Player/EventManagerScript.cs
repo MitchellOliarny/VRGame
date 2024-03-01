@@ -24,8 +24,8 @@ public class EventManagerScript : MonoBehaviour
     #endregion
 
     #region DAMAGE
-    public static event Action<int, float> OnEnemyHit;
-    public static void EnemyHit(int ID, float damage) { OnEnemyHit?.Invoke(ID, damage); }
+    public static event Action<int, float, int> OnEnemyHit;
+    public static void EnemyHit(int ID, float damage, int pierce) { OnEnemyHit?.Invoke(ID, damage, pierce); }
 
     public static event Action<int, int> OnBladeHit;
     public static void BladeHit(int ID, int SpinID) { OnBladeHit?.Invoke(ID, SpinID); }

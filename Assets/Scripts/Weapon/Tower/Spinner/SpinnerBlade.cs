@@ -8,6 +8,7 @@ public class SpinnerBlade : MonoBehaviour
 
     [SerializeField] bool sword;
     [SerializeField] int damage;
+    [SerializeField] int pierce;
     private void Start()
     {
         ID = transform.parent.parent.parent.gameObject.GetInstanceID();
@@ -30,7 +31,7 @@ public class SpinnerBlade : MonoBehaviour
                 else
                 {
                     Debug.Log("sword hit");
-                    EventManagerScript.EnemyHit(other.GetComponentInParent<EnemyArrayIndex>().Index, damage);
+                    EventManagerScript.EnemyHit(other.GetComponentInParent<EnemyArrayIndex>().Index, damage, pierce);
                 }
             }
         }

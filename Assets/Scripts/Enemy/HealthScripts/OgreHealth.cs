@@ -47,14 +47,14 @@ public class OgreHealth : Health
         currentHealth = _maxHealth;
     }
 
-    public override void DamageHealth(float damage)
+    public override void DamageHealth(float damage, int pierce)
     {
         hitSound.PlayOneShot(hitSound.clip, hitSound.volume);
         currentHealth -= damage;
-        CheckDeath();
+        CheckDeath(1);
     }
 
-    public override void CheckDeath()
+    public override void CheckDeath(int pierce)
     {
         if (currentHealth <= 0)
         {

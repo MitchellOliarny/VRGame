@@ -6,7 +6,7 @@ public class EnemySettings : ScriptableObject
     [Header("HEALTH")]
     [SerializeField] private int tier;
     [SerializeField] private float scale;
-    [SerializeField] private float health;
+    [SerializeField] private float health, maxHealth;
     [SerializeField] private float speed;
     [SerializeField] private float ChildLifeTime;
     [SerializeField] private int cashDrop;
@@ -15,6 +15,7 @@ public class EnemySettings : ScriptableObject
     [SerializeField] private ParticleSystem deathParticle;
 
 
+    public float GetMaxHealth => maxHealth;
     public float GetHealth => health;
     public float GetSpeed => speed;
     public int GetCashDrop => cashDrop;

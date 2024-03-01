@@ -10,6 +10,7 @@ public class DroneShoot : MonoBehaviour
     [Header("SHOOTING VARIABLES")]
     [SerializeField] private Transform _muzzle; // Transform of Muzzle
     private float damage; // Drone Damage
+    [SerializeField] int pierce; //Drone Pierce
 
     [Header("PARTICLE SYSTEM")]
     [SerializeField] private ParticleSystem droneMuzzleFire; // Particle System at Muzzle
@@ -54,7 +55,7 @@ public class DroneShoot : MonoBehaviour
                 if (fireRateTimer <= 0) 
                 {
                     if (hit.collider.gameObject.GetComponentInParent<EnemyArrayIndex>() != null)
-                    EventManagerScript.EnemyHit(hit.collider.gameObject.GetComponentInParent<EnemyArrayIndex>().Index, damage);
+                    EventManagerScript.EnemyHit(hit.collider.gameObject.GetComponentInParent<EnemyArrayIndex>().Index, damage, pierce);
                     shootSound.PlayOneShot(shootSound.clip, shootSound.volume);
                     droneMuzzleFire.Play(); // Play Drone Muzzle Fire Particle System
                     GameObject temp = Instantiate(impactDroneFire, hit.point, Quaternion.identity); // Instantiate impactDroneFire particle system at enemy.point

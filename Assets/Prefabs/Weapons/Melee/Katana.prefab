@@ -647,6 +647,7 @@ MonoBehaviour:
   callSever: {fileID: 0}
   sword: 1
   damage: 15
+  pierce: 1
 --- !u!64 &8969268932031679838
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -43,7 +43,7 @@ public class CrossbowUpgradeManager : UpgradeMaster
                     switch (index)
                     {
                         case 1:
-                            _turretShoot.SetPierce(pierceUpgrade1);
+                            _turretShoot.SetProjectilePassThrough(pierceUpgrade1);
                             break;
                         case 2:
                             _turretShoot.SetPierce(pierceUpgrade2);
@@ -52,7 +52,7 @@ public class CrossbowUpgradeManager : UpgradeMaster
                             _turretShoot.SetRichochet(true);
                             break;
                         case 4:
-                            _turretShoot.SetPierce(pierceUpgrade3);
+                            _turretShoot.SetProjectilePassThrough(pierceUpgrade3);
                             break;
                     }
 

@@ -15,6 +15,7 @@ MonoBehaviour:
   tier: 5
   scale: 1.75
   health: 1
+  maxHealth: 1
   speed: 7.5
   ChildLifeTime: 0.5
   cashDrop: 8

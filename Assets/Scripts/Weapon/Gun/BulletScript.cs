@@ -12,7 +12,7 @@ public class BulletScript : MonoBehaviour
 
     [Header("BOOLS")]
     [SerializeField] private int _canHit; // If Bullet Can Hit
-    [SerializeField] private int pierceMod = 0;
+    [SerializeField] private int projectilePassThrough = 0, pierce;
     [SerializeField] private bool _canRichochet;
 
     private void Start()
@@ -58,16 +58,16 @@ public class BulletScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // If Bullet collides with enemy && Bullet Can Hit
-        if (other.tag == "enemy" && _canHit <= pierceMod)
+        if (other.tag == "enemy" && _canHit <= projectilePassThrough)
         {
             _canHit++; // Adds 1 to CanHit
 
             // If enemy has DamageEvent Attatched, Damage enemy
             if (other.GetComponentInParent<EnemyArrayIndex>() != null)
-                EventManagerScript.EnemyHit(other.GetComponentInParent<EnemyArrayIndex>().Index, _damage);
+                EventManagerScript.EnemyHit(other.GetComponentInParent<EnemyArrayIndex>().Index, _damage, projectilePassThrough);
         }
 
-        if (_canHit > pierceMod) Destroy(gameObject);
+        if (_canHit > projectilePassThrough) Destroy(gameObject);
     }
     private void OnCollisionEnter(Collision collision)
     { 
@@ -81,6 +81,8 @@ public class BulletScript : MonoBehaviour
     // FLOAT: Bullet Damage
     // Sets the bullet's damage
     public void SetDamage(float damage) => _damage = damage;
-    public void SetPierceMod(int mod) => pierceMod = mod;
+    public void SetProjectilePassThrough(int mod) => projectilePassThrough = mod;
+
+    public void SetPierce(int mod) => pierce = mod;
     public void SetRichochet(bool b) => _canRichochet = b;
 }

@@ -12,6 +12,7 @@ public class Attack_Spinner : MonoBehaviour
     [Header("INTS")]
     [SerializeField] private float damage; // Damage of Blades
     [SerializeField] private int InstanceID;
+    [SerializeField] int pierce; //Pierce of Blades
 
     [Header("GAME VALUES")]
     [SerializeField] private ParticleSystem hitEffect; // Hit effect
@@ -51,7 +52,7 @@ public class Attack_Spinner : MonoBehaviour
     {
         if (SpinID == InstanceID)
         {
-            EventManagerScript.EnemyHit(ID, damage);
+            EventManagerScript.EnemyHit(ID, damage, pierce);
         }
     }
 
