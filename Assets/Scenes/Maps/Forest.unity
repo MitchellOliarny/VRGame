@@ -2290,6 +2290,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1426538754 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 205256676492275944, guid: 13811cbd3996caa469194cdca4492235, type: 3}
+  m_PrefabInstance: {fileID: 2101436300}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &1426538757
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426538754}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 3
+  m_Center: {x: -5.7906197e-25, y: -0.12623513, z: 5.7906197e-25}
 --- !u!1 &1525823811
 GameObject:
   m_ObjectHideFlags: 0
@@ -3288,6 +3314,10 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4620416634508086970, guid: 13811cbd3996caa469194cdca4492235, type: 3}
+      propertyPath: sellPrice
+      value: 750
+      objectReference: {fileID: 0}
     - target: {fileID: 5717022289535282916, guid: 13811cbd3996caa469194cdca4492235, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -3337,6 +3367,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 205256676492275944, guid: 13811cbd3996caa469194cdca4492235, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1426538757}
     - targetCorrespondingSourceObject: {fileID: 8974958993847199304, guid: 13811cbd3996caa469194cdca4492235, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1916375110}

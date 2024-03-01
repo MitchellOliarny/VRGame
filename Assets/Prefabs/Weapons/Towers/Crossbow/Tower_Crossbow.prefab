@@ -164,10 +164,10 @@ MonoBehaviour:
   - Armor Piercing Arrows
   - Diamond Tipped Arrows
   path2UpgradeDescrips:
-  - +15% Damage
-  - +20%  Damage
-  - +50%  Damage
-  - +100%  Damage
+  - +15% Damage to Health Based Enemies
+  - +20%  Damage to Health Based Enemies
+  - +50%  Damage to Health Based Enemies
+  - +100%  Damage to Health Based Enemies
   path2UpgradeCosts: 96000000fa0000009001000020030000
   path3UpgradeNames:
   - Increased Range

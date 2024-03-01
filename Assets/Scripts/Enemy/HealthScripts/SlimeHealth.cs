@@ -77,6 +77,7 @@ public class SlimeHealth : Health
             if (colorManager.DecreaseColor(tier, pierce) != null)
             {
                 Debug.Log(colorManager.DecreaseColor(tier, pierce));
+                Debug.Log(tier + " " + pierce);
                 settings = colorManager.DecreaseColor(tier, pierce);
                 tier = settings.GetTier;
                 follower.UpdateSpeed(settings.GetSpeed);

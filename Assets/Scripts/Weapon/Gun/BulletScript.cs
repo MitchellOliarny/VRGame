@@ -64,7 +64,7 @@ public class BulletScript : MonoBehaviour
 
             // If enemy has DamageEvent Attatched, Damage enemy
             if (other.GetComponentInParent<EnemyArrayIndex>() != null)
-                EventManagerScript.EnemyHit(other.GetComponentInParent<EnemyArrayIndex>().Index, _damage, projectilePassThrough);
+                EventManagerScript.EnemyHit(other.GetComponentInParent<EnemyArrayIndex>().Index, _damage, pierce);
         }
 
         if (_canHit > projectilePassThrough) Destroy(gameObject);
