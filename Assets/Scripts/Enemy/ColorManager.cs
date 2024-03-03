@@ -8,7 +8,6 @@ public class ColorManager : MonoBehaviour
     [SerializeField] private Renderer rend;
 
     [Header("HEALTH COLORS")]
-    [SerializeField] private Material[] colors;
     [SerializeField] private EnemySettings[] _enemySettings;
     public EnemySettings DecreaseColor(int tier, int pierce)
     {
@@ -23,6 +22,6 @@ public class ColorManager : MonoBehaviour
         }
     }
 
-    public Material GetMaterial(int tier, int pierce) => colors[(tier - pierce)];
+    public Material GetMaterial(int tier, int pierce) => _enemySettings[(tier - pierce)].GetMaterial;
 
 }
