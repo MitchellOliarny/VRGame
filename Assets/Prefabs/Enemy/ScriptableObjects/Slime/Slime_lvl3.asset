@@ -19,5 +19,5 @@ MonoBehaviour:
   speed: 5.5
   ChildLifeTime: 0.5
   cashDrop: 4
-  material: {fileID: 2100000, guid: 52adf68e6948ba54dab28336efaf8ce6, type: 2}
+  material: {fileID: 2100000, guid: 54d587c0742c36247a853167aa5a313b, type: 2}
   deathParticle: {fileID: 8598302531565294783, guid: 5e3e86fdfaaf936428e23bc5d20f12fa, type: 3}
