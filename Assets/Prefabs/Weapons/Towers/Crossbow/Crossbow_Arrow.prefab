@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -2414476118229785523}
   - component: {fileID: 8479529184930561121}
   - component: {fileID: -7685322547804364734}
-  - component: {fileID: 4743584407429389903}
+  - component: {fileID: 8968304538953057806}
   m_Layer: 12
   m_Name: Crossbow_Arrow
   m_TagString: projectile
@@ -251,8 +251,8 @@ TrailRenderer:
   m_Autodestruct: 1
   m_Emitting: 1
   m_ApplyActiveColorSpace: 0
---- !u!64 &4743584407429389903
-MeshCollider:
+--- !u!65 &8968304538953057806
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -269,10 +269,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7929139438592967118, guid: 4eab4030b828fed479479e2ed3a12b40, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 4616.1704, y: 3060.534, z: 562.52075}
+  m_Center: {x: 134.09557, y: 18.855333, z: -134.19316}
 --- !u!1001 &3777670011558605981
 PrefabInstance:
   m_ObjectHideFlags: 0
