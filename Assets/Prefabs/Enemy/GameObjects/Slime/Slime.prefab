@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 693945725605846574}
   m_Layer: 10
   m_Name: Slime
-  m_TagString: enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,6 +55,7 @@ MonoBehaviour:
   speed: 2.5
   speedModifier: 2.5
   distanceTravelled: 0
+  slimeHeight: 0.015
   anim: {fileID: 0}
 --- !u!114 &-6082765515795072591
 MonoBehaviour:
@@ -238,6 +239,7 @@ MonoBehaviour:
   Speed: 0
   MagicRes: 0
   ExploRes: 0
+  Flying: 0
   inAir: 0
 --- !u!114 &4946081348031839029
 MonoBehaviour:
@@ -295,15 +297,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 1279886501603362869}
-  colors:
-  - {fileID: 2100000, guid: eb2b500d32a025b4491497aba71248cb, type: 2}
-  - {fileID: 2100000, guid: 8d2ae01bccf5b2b4f9e7507edab9c6a2, type: 2}
-  - {fileID: 2100000, guid: 52adf68e6948ba54dab28336efaf8ce6, type: 2}
-  - {fileID: 2100000, guid: c5be2b2d10073534983cc57f4eb51530, type: 2}
-  - {fileID: 2100000, guid: a3acf851b0346ce4ca6428f3f4b1af11, type: 2}
-  - {fileID: 2100000, guid: ed73795b061c9d64394d8bb9486a1beb, type: 2}
-  - {fileID: 2100000, guid: bfcc010eb18a5b74e8aa1c8c9d0475bf, type: 2}
-  - {fileID: 2100000, guid: 63a847fdea80d9b44a860c975f64fc74, type: 2}
   _enemySettings:
   - {fileID: 11400000, guid: 1c88e68bf6ae4584bb4be20bb3228fc2, type: 2}
   - {fileID: 11400000, guid: 17364448aede7c54a8f32fc1199f002c, type: 2}

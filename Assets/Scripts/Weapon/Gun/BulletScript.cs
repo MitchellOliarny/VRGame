@@ -11,7 +11,7 @@ public class BulletScript : MonoBehaviour
     [SerializeField] private float _speed, _lifetime, _damage; // Bullet Speed, Bullet Lifetime, Bullet Damage
 
     [Header("BOOLS")]
-    [SerializeField] private int _canHit; // If Bullet Can Hit
+    [SerializeField] private int _canHit = 0; // If Bullet Can Hit
     [SerializeField] private int projectilePassThrough = 0, pierce;
     [SerializeField] private bool _canRichochet;
 
@@ -60,10 +60,11 @@ public class BulletScript : MonoBehaviour
         // If Bullet collides with enemy && Bullet Can Hit
         if (other.tag == "enemy" && _canHit <= projectilePassThrough)
         {
+            //Debug.Log("Enemy");
             _canHit++; // Adds 1 to CanHit
 
             // If enemy has DamageEvent Attatched, Damage enemy
-            if (other.GetComponentInParent<EnemyArrayIndex>() != null)
+            if (other.GetComponentInParent<EnemyArrayIndex>())
                 EventManagerScript.EnemyHit(other.GetComponentInParent<EnemyArrayIndex>().Index, _damage, pierce);
         }
 
@@ -73,6 +74,7 @@ public class BulletScript : MonoBehaviour
     { 
         if (collision.collider.CompareTag("ground") && !_canRichochet)
         {
+            //Debug.Log("Ground");
             Destroy(gameObject);
         }
     }

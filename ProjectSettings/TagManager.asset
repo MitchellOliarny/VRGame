@@ -21,6 +21,7 @@ TagManager:
   - eventmanager
   - projectile
   - Manager
+  - pathAir
   layers:
   - Default
   - TransparentFX

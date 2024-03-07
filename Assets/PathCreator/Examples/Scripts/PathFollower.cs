@@ -12,35 +12,42 @@ namespace PathCreation.Examples
         public float speed;
         [SerializeField] private float speedModifier;
         [SerializeField] private float distanceTravelled;
-        private EnemyModifiers getInAir;
+        [SerializeField] private EnemyModifiers slimeStatus;
+
+        [SerializeField] private float slimeHeight = 0.015f;
         [SerializeField] Animator anim;
 
+        
         void Start() {
-            if (pathCreator != null)
-            {
-                // Subscribed to the pathUpdated event so that we're notified if the path changes during the game
-                pathCreator.pathUpdated += OnPathChanged;
-            }
-
-            getInAir = GetComponentInChildren<EnemyModifiers>();
+            // if (pathCreator != null)
+            // {
+            //     // Subscribed to the pathUpdated event so that we're notified if the path changes during the game
+            //     pathCreator.pathUpdated += OnPathChanged;
+            // }
+            slimeStatus = GetComponentInChildren<EnemyModifiers>();
 
             speed = settings.GetSpeed;
 
             anim = GetComponentInChildren<Animator>();
             anim.SetFloat("animSpeed", speed);
 
-            if (GetComponentInChildren<EnemyModifiers>().GetSpeed) speed += speedModifier;
             pathCreator = GameObject.FindGameObjectWithTag("path").GetComponent<PathCreator>();
+  
         }
 
         void Update()
         {
-            if (pathCreator != null && getInAir.GetInAir())
+            if (pathCreator != null && (slimeStatus.GetInAir() || slimeStatus.GetFlying))
             {
-                distanceTravelled += 2 * Time.deltaTime;
-                transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
-                transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
+                MoveAlongPath();
             }
+        }
+
+        void MoveAlongPath() {
+            distanceTravelled += speed * Time.deltaTime;
+            Vector3 pathPosition = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
+            transform.position = new Vector3(pathPosition.x, slimeHeight, pathPosition.z);
+            transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
         }
 
         // If the path changes during the game, update the distance travelled so that the follower's position on the new path
@@ -54,19 +61,15 @@ namespace PathCreation.Examples
             get { return distanceTravelled; }
             set { distanceTravelled = value; }
         }
-        public void UpdateSpeed(float f)
-        {
-            if (GetComponentInChildren<EnemyModifiers>().GetSpeed)
-            {
-                speed = f;
-                speed += speedModifier;
-                anim.SetFloat("animSpeed", speed);
-            }
-            else
-            {
-                speed = f;
-                anim.SetFloat("animSpeed", speed);
-            }
+
+        public void UpdateModifier(EnemyModifiers mod) {
+            slimeStatus = mod;
+            if (slimeStatus.GetFlying) { slimeHeight = 1.75f;}
+            if (slimeStatus.GetSpeed) {UpdateSpeed(3);}
+        }
+        public void UpdateSpeed(float f) {
+            speed += f;
+            anim.SetFloat("animSpeed", speed);
         }
     }
 }

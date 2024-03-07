@@ -82,13 +82,13 @@ public class EnemySpawn : MonoBehaviour
                 GameObject tempEnemy = Instantiate(Slime, path.path.GetPoint(0), Quaternion.identity); // Instantiate enemyHolderArray[0] gameObject at path index 0
                 tempEnemy.GetComponent<EnemyArrayIndex>().Index = index;
                 tempEnemy.GetComponent<PathFollower>().settings = _enemyHolderArray[0];
-                if (modifierArray.Count != 0)
+                if (modifierArray.Count > 0)
                 {
-                    if (modifierArray[0] != null)
+                    if (modifierArray[0])
                     {
                         tempEnemy.GetComponentInChildren<EnemyModifiers>().SetModifiers(modifierArray[0]); // Set modifier of newly created enemy
+                        modifierArray.Remove(modifierArray[0]); // Remove most recent Modifier from modifier array 
                     }
-                    modifierArray.Remove(modifierArray[0]); // Remove most recent Modifier from modifier array 
                 }
 
                 _enemyHolderArray.Remove(_enemyHolderArray[0]); // Remove most recent enemy from enemy holder array

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using PathCreation.Examples;
 using UnityEngine;
 
 public class EnemyModifiers : MonoBehaviour
@@ -15,6 +16,7 @@ public class EnemyModifiers : MonoBehaviour
     [SerializeField] private bool Speed;
     [SerializeField] private bool MagicRes;
     [SerializeField] private bool ExploRes;
+    [SerializeField] private bool Flying;
 
 
     private void Start()
@@ -25,6 +27,7 @@ public class EnemyModifiers : MonoBehaviour
         Speed = mod.Speed;
         MagicRes = mod.MagicRes;
         ExploRes = mod.ExploRes;
+        Flying = mod.Flying;
     }
 
     //-------------------------------------
@@ -35,27 +38,19 @@ public class EnemyModifiers : MonoBehaviour
     public bool GetSpeed => Speed;
     public bool GetMagicRes => MagicRes;
     public bool GetExploRes => ExploRes;
+    public bool GetFlying => Flying;
     //-------------------------------------
 
     public void SetModifiers(EnemyModifierSettings mods)
     {
         mod = mods;
-    }
-
-    public void SetModifiers(bool b)
-    {
-        Reinforced = false;
-        Camo = false;
-        Rock = false;
-        Speed = false;
-        MagicRes = false;
-        ExploRes = false;
+        GetComponentInParent<PathFollower>().UpdateModifier(this);
     }
 
 
     //-- SLIME IN AIR MODIFIER --\\
-    //DO NOT TOUCH
     [SerializeField] private bool inAir;
+    //DO NOT TOUCH
     public void Air() => inAir = true; // Set inAir True
 
     public void Ground() => inAir = false; // Set inAir False

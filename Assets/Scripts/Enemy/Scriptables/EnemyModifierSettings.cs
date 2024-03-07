@@ -10,4 +10,5 @@ public class EnemyModifierSettings : ScriptableObject
     public bool Speed;
     public bool MagicRes;
     public bool ExploRes;
+    public bool Flying;
 }
