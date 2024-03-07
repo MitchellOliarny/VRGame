@@ -62,10 +62,13 @@ namespace PathCreation.Examples
             set { distanceTravelled = value; }
         }
 
-        public void UpdateModifier(EnemyModifiers mod) {
-            slimeStatus = mod;
-            if (slimeStatus.GetFlying) { slimeHeight = 1.75f;}
-            if (slimeStatus.GetSpeed) {UpdateSpeed(3);}
+        public void UpdateModifier(EnemyModifierSettings mod) {
+            if (mod.Flying) { 
+                slimeHeight = 1.75f;
+            }
+            if (mod.Speed) {
+                UpdateSpeed(speedModifier);
+            }
         }
         public void UpdateSpeed(float f) {
             speed += f;

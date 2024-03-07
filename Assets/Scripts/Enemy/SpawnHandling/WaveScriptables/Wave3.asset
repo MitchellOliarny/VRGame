@@ -38,6 +38,31 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f7c04d9a793a53b4b8a16bedf420e896, type: 2}
   - {fileID: 11400000, guid: f7c04d9a793a53b4b8a16bedf420e896, type: 2}
   - {fileID: 11400000, guid: f7c04d9a793a53b4b8a16bedf420e896, type: 2}
-  SlimeModifierArray: []
+  SlimeModifierArray:
+  - {fileID: 11400000, guid: de4d361355dfaa74fbef8857c53f800f, type: 2}
+  - {fileID: 11400000, guid: de4d361355dfaa74fbef8857c53f800f, type: 2}
+  - {fileID: 11400000, guid: de4d361355dfaa74fbef8857c53f800f, type: 2}
+  - {fileID: 11400000, guid: de4d361355dfaa74fbef8857c53f800f, type: 2}
+  - {fileID: 11400000, guid: de4d361355dfaa74fbef8857c53f800f, type: 2}
+  - {fileID: 11400000, guid: de4d361355dfaa74fbef8857c53f800f, type: 2}
+  - {fileID: 11400000, guid: de4d361355dfaa74fbef8857c53f800f, type: 2}
+  - {fileID: 11400000, guid: de4d361355dfaa74fbef8857c53f800f, type: 2}
+  - {fileID: 11400000, guid: de4d361355dfaa74fbef8857c53f800f, type: 2}
+  - {fileID: 11400000, guid: de4d361355dfaa74fbef8857c53f800f, type: 2}
+  - {fileID: 11400000, guid: de4d361355dfaa74fbef8857c53f800f, type: 2}
+  - {fileID: 11400000, guid: de4d361355dfaa74fbef8857c53f800f, type: 2}
+  - {fileID: 11400000, guid: de4d361355dfaa74fbef8857c53f800f, type: 2}
+  - {fileID: 11400000, guid: de4d361355dfaa74fbef8857c53f800f, type: 2}
+  - {fileID: 11400000, guid: de4d361355dfaa74fbef8857c53f800f, type: 2}
+  - {fileID: 11400000, guid: de4d361355dfaa74fbef8857c53f800f, type: 2}
+  - {fileID: 11400000, guid: de4d361355dfaa74fbef8857c53f800f, type: 2}
+  - {fileID: 11400000, guid: de4d361355dfaa74fbef8857c53f800f, type: 2}
+  - {fileID: 11400000, guid: de4d361355dfaa74fbef8857c53f800f, type: 2}
+  - {fileID: 11400000, guid: de4d361355dfaa74fbef8857c53f800f, type: 2}
+  - {fileID: 11400000, guid: ba795365eaa21634fb43fb372ba99c88, type: 2}
+  - {fileID: 11400000, guid: ba795365eaa21634fb43fb372ba99c88, type: 2}
+  - {fileID: 11400000, guid: ba795365eaa21634fb43fb372ba99c88, type: 2}
+  - {fileID: 11400000, guid: ba795365eaa21634fb43fb372ba99c88, type: 2}
+  - {fileID: 11400000, guid: ba795365eaa21634fb43fb372ba99c88, type: 2}
   waveTimer: 0.33
   waveEndCash: 225

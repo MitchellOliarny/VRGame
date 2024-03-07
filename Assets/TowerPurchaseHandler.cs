@@ -21,12 +21,12 @@ public class TowerPurchaseHandler : MonoBehaviour
     void Start()
     {
         GameObject tower = towers[0];
-        GameObject spawnedTower = GameObject.Instantiate(tower, new Vector3(0f, 0f, .05f), Quaternion.Euler(0f, 180f, 0f), towerAttach.transform);
-        spawnedTower.transform.localScale = new Vector3(.1f, .1f, .05f);
+        GameObject spawnedTower = GameObject.Instantiate(tower, new Vector3(0f, 0f, .05f), Quaternion.Euler(-90f, -90f, 0f), towerAttach.transform);
+        spawnedTower.transform.localScale = new Vector3(.1f, .1f, .1f);
         spawnedTower.GetComponent<Rigidbody>().useGravity = false;
         spawnedTower.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         spawnedTower.transform.position = towerAttach.transform.position;
-        spawnedTower.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        spawnedTower.transform.rotation = Quaternion.Euler(-90f, 90f, 0f);
         costText.text = "Cost: " + spawnedTower.GetComponent<TurretSpawn>().cost;
     }
 
@@ -52,12 +52,12 @@ public class TowerPurchaseHandler : MonoBehaviour
             Destroy(towerAttach.transform.GetChild(0).gameObject);
         }
         GameObject tower = towers[currTower];
-        GameObject spawnedTower = GameObject.Instantiate(tower, new Vector3(0f, 0f, .05f), Quaternion.Euler(0f, 180f, 0f), towerAttach.transform);
-        spawnedTower.transform.localScale = new Vector3(.1f, .1f, .05f);
+        GameObject spawnedTower = GameObject.Instantiate(tower, new Vector3(0f, 0f, .05f), Quaternion.Euler(-90f, -90f, 0f), towerAttach.transform);
+        spawnedTower.transform.localScale = new Vector3(.1f, .1f, .1f);
         spawnedTower.GetComponent<Rigidbody>().useGravity = false;
         spawnedTower.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         spawnedTower.transform.position = towerAttach.transform.position;
-        spawnedTower.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        spawnedTower.transform.rotation = Quaternion.Euler(-90f, 90f, 0f);
         costText.text = "Cost: " + spawnedTower.GetComponent<TurretSpawn>().cost;
     }
 
@@ -78,12 +78,12 @@ public class TowerPurchaseHandler : MonoBehaviour
         }
 
         GameObject tower = towers[currTower];
-        GameObject spawnedTower = GameObject.Instantiate(tower, new Vector3(0f, 0f, .05f), Quaternion.Euler(0f, 180f, 0f), towerAttach.transform);
-        spawnedTower.transform.localScale = new Vector3(.1f, .1f, .05f);
+        GameObject spawnedTower = GameObject.Instantiate(tower, new Vector3(0f, 0f, .05f), Quaternion.Euler(-90f, -90f, 0f), towerAttach.transform);
+        spawnedTower.transform.localScale = new Vector3(.1f, .1f, .1f);
         spawnedTower.GetComponent<Rigidbody>().useGravity = false;
         spawnedTower.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         spawnedTower.transform.position = towerAttach.transform.position;
-        spawnedTower.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        spawnedTower.transform.rotation = Quaternion.Euler(-90f, 90f, 0f);
         costText.text = "Cost: " + spawnedTower.GetComponent<TurretSpawn>().cost;
     }
 }

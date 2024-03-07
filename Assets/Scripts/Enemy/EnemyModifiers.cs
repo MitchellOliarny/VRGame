@@ -18,7 +18,9 @@ public class EnemyModifiers : MonoBehaviour
     [SerializeField] private bool ExploRes;
     [SerializeField] private bool Flying;
 
-
+    [Header("Objects")]
+    [SerializeField] private GameObject flyingOBJ;
+    [SerializeField] private Animator anim;
     private void Start()
     {
         Reinforced = mod.Reinforced;
@@ -44,7 +46,17 @@ public class EnemyModifiers : MonoBehaviour
     public void SetModifiers(EnemyModifierSettings mods)
     {
         mod = mods;
-        GetComponentInParent<PathFollower>().UpdateModifier(this);
+        GetComponentInParent<PathFollower>().UpdateModifier(mods);
+        if (mods.Flying)
+        {
+            flyingOBJ.SetActive(true);
+            anim.SetBool("Flying", true);
+        }
+        else
+        {
+            flyingOBJ.SetActive(false);
+            anim.SetBool("Flying", false);
+        }
     }
 
 

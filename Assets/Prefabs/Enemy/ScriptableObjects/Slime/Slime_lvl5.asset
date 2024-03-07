@@ -18,6 +18,6 @@ MonoBehaviour:
   maxHealth: 1
   speed: 7.5
   ChildLifeTime: 0.5
-  cashDrop: 8
+  cashDrop: 1
   material: {fileID: 2100000, guid: e45128a99c43de64a89015ac15d49c69, type: 2}
   deathParticle: {fileID: 7870527370726021395, guid: ef8c102a6b6edf04cb389de396781854, type: 3}
