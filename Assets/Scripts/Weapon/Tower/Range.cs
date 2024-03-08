@@ -5,6 +5,7 @@ using UnityEngine;
 public class Range : MonoBehaviour
 {
     private TargetingScript targeting;
+    [SerializeField] bool targetFlying, targetCamo;
 
     private void Start()
     {
@@ -14,7 +15,9 @@ public class Range : MonoBehaviour
     {
         if (other.gameObject.CompareTag("enemy"))
         {
-            targeting.AddEnemy(other.gameObject);
+            if (CheckTarget(other.gameObject)) {
+                targeting.AddEnemy(other.gameObject);
+            }
         }
     }
 
@@ -24,5 +27,19 @@ public class Range : MonoBehaviour
         {
             targeting.RemoveEnemy(other.gameObject);
         }
+    }
+
+        private bool CheckTarget(GameObject enemy)
+    {
+
+        if (enemy.GetComponent<EnemyModifiers>().GetFlying && !targetFlying)
+        {
+            return false;
+        }
+        if (enemy.GetComponent<EnemyModifiers>().GetCamo && !targetCamo)
+        {
+            return false;
+        }
+        return true;
     }
 }

@@ -38,6 +38,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1c88e68bf6ae4584bb4be20bb3228fc2, type: 2}
   - {fileID: 11400000, guid: 1c88e68bf6ae4584bb4be20bb3228fc2, type: 2}
   - {fileID: 11400000, guid: 1c88e68bf6ae4584bb4be20bb3228fc2, type: 2}
-  SlimeModifierArray: []
+  SlimeModifierArray:
+  - {fileID: 11400000, guid: ba795365eaa21634fb43fb372ba99c88, type: 2}
+  - {fileID: 11400000, guid: ba795365eaa21634fb43fb372ba99c88, type: 2}
   waveTimer: 0.33
   waveEndCash: 150
