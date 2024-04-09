@@ -29,7 +29,7 @@ public class DamageEvent : MonoBehaviour
     {
         if (index == indexer.Index)
         {
-            Debug.Log("raw DMG " + damage);
+            if(pierce <= 0) {pierce = 1;}
             // If enemy is reinforced multiply damage by .5f
             if (mod.GetReinforced) { damage *= .5f; Debug.Log("new DMG " + damage); }
 

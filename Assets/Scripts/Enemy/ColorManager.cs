@@ -22,6 +22,6 @@ public class ColorManager : MonoBehaviour
         }
     }
 
-    public Material GetMaterial(int tier, int pierce) => _enemySettings[(tier - pierce)].GetMaterial;
+    public Material GetMaterial(int tier, int pierce) => _enemySettings[tier - pierce].GetMaterial;
 
 }

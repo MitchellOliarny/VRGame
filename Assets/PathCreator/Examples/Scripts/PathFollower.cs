@@ -71,8 +71,9 @@ namespace PathCreation.Examples
             }
         }
         public void UpdateSpeed(float f) {
-            speed += f;
+            speed = f;
             anim.SetFloat("animSpeed", speed);
         }
+
     }
 }
