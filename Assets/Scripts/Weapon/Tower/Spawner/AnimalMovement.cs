@@ -10,6 +10,9 @@ public class AnimalMovement : MonoBehaviour
     [SerializeField] bool targetFlying = false, targetCamo = false;
     [SerializeField] private Vector3 origin;
     private GameObject targetEnemy = null;
+    [SerializeField] GameObject AttackBox;
+    [SerializeField] int enemy_hit_count, pierce;
+    [SerializeField] float damage;
     void Start()
     {
         enemies = gameObject.GetComponentInParent<TargetingScript>();
@@ -63,6 +66,10 @@ public class AnimalMovement : MonoBehaviour
         Vector3 target = new Vector3(enemy.transform.position.x, transform.position.y, enemy.transform.position.z);
         transform.LookAt(target);
         if (distance > targetSpace) { gameObject.transform.position = Vector3.MoveTowards(transform.position, new Vector3(enemy.transform.position.x, transform.position.y, enemy.transform.position.z), step); }
+        else
+        {
+            //Start Attack Anim, attack anim will manage start of damage method
+        }
 
     }
 
@@ -76,6 +83,15 @@ public class AnimalMovement : MonoBehaviour
         gameObject.transform.position = Vector3.MoveTowards(transform.position, origin, step);
     }
 
+    public void DamageEnemy()
+    {
+        AttackBox.SetActive(true);
+    }
+
     public void HitFlying() => targetFlying = true;
     public void HitCamo() => targetCamo = true;
+
+    public int EnemyHitCount() => enemy_hit_count;
+    public float AnimalDamage() => damage;
+    public int AnimalPierce() => pierce;
 }
