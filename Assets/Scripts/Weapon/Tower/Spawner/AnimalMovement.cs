@@ -13,6 +13,9 @@ public class AnimalMovement : MonoBehaviour
     [SerializeField] GameObject AttackBox;
     [SerializeField] int enemy_hit_count, pierce;
     [SerializeField] float damage;
+    [SerializeField] Animator anim;
+    [SerializeField] AnimalAttack attack;
+    private bool canAttack = true;
     void Start()
     {
         enemies = gameObject.GetComponentInParent<TargetingScript>();
@@ -62,13 +65,21 @@ public class AnimalMovement : MonoBehaviour
     private void MoveToTarget(GameObject enemy)
     {
         float step = speed * Time.deltaTime;
-        float distance = Vector3.Distance(transform.position, enemy.transform.position);
+        float distance = Vector3.Distance(new Vector3(transform.position.x, 0, transform.position.z), new Vector3(enemy.transform.position.x, 0, enemy.transform.position.z));
         Vector3 target = new Vector3(enemy.transform.position.x, transform.position.y, enemy.transform.position.z);
         transform.LookAt(target);
-        if (distance > targetSpace) { gameObject.transform.position = Vector3.MoveTowards(transform.position, new Vector3(enemy.transform.position.x, transform.position.y, enemy.transform.position.z), step); }
+        if (distance > targetSpace) 
+        { 
+            gameObject.transform.position = Vector3.MoveTowards(transform.position, new Vector3(enemy.transform.position.x, transform.position.y, enemy.transform.position.z), step); 
+        }
         else
         {
-            //Start Attack Anim, attack anim will manage start of damage method
+            if (canAttack)
+            {
+                //Start Attack Anim, attack anim will manage start of damage method
+                anim.SetTrigger("attack");
+                canAttack = false;
+            }
         }
 
     }
@@ -94,4 +105,6 @@ public class AnimalMovement : MonoBehaviour
     public int EnemyHitCount() => enemy_hit_count;
     public float AnimalDamage() => damage;
     public int AnimalPierce() => pierce;
+
+    public void SetCanAttackTrue() => canAttack = true;
 }
