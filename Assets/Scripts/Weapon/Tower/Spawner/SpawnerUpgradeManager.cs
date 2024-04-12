@@ -72,6 +72,10 @@ public class SpawnerUpgradeManager : UpgradeMaster
                             {
                                 bats[i].SetActive(true);
                             }
+                            foreach (GameObject i in bats)
+                            {
+                                i.GetComponent<AnimalMovement>().SetPierce(2);
+                            }
                             break;
                     }
 
@@ -129,7 +133,7 @@ public class SpawnerUpgradeManager : UpgradeMaster
         }
         else return false;
 
-        
+
     }
 
     private bool CanBuy(int path, int upgrade)

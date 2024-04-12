@@ -9,7 +9,7 @@ public class AnimalAttack : MonoBehaviour
     private float _damage;
     private int pierce;
 
-    private void OnEnable()
+    void OnEnable()
     {
         //Add damage, pierce, enemy_hits into parent script and get from here
         //Parent script gets adjusted on upgrade

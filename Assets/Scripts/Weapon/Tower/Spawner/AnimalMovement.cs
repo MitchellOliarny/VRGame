@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AnimalMovement : MonoBehaviour
@@ -22,6 +23,11 @@ public class AnimalMovement : MonoBehaviour
         origin = gameObject.transform.position;
     }
 
+    void OnEnable()
+    {
+        AttackBox.SetActive(false);
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -37,8 +43,10 @@ public class AnimalMovement : MonoBehaviour
             }
 
         }
-        else if (targetEnemy) {
-            if (!enemies.GetEnemyArray.Contains(targetEnemy)) {
+        else if (targetEnemy)
+        {
+            if (!enemies.GetEnemyArray.Contains(targetEnemy))
+            {
                 targetEnemy = null;
             }
             MoveToTarget(targetEnemy);
@@ -68,9 +76,9 @@ public class AnimalMovement : MonoBehaviour
         float distance = Vector3.Distance(new Vector3(transform.position.x, 0, transform.position.z), new Vector3(enemy.transform.position.x, 0, enemy.transform.position.z));
         Vector3 target = new Vector3(enemy.transform.position.x, transform.position.y, enemy.transform.position.z);
         transform.LookAt(target);
-        if (distance > targetSpace) 
-        { 
-            gameObject.transform.position = Vector3.MoveTowards(transform.position, new Vector3(enemy.transform.position.x, transform.position.y, enemy.transform.position.z), step); 
+        if (distance > targetSpace)
+        {
+            gameObject.transform.position = Vector3.MoveTowards(transform.position, new Vector3(enemy.transform.position.x, transform.position.y, enemy.transform.position.z), step);
         }
         else
         {
@@ -106,5 +114,13 @@ public class AnimalMovement : MonoBehaviour
     public float AnimalDamage() => damage;
     public int AnimalPierce() => pierce;
 
-    public void SetCanAttackTrue() => canAttack = true;
+    public void SetEnemyHitCount(int i) => enemy_hit_count = i;
+    public void SetPierce(int i) => pierce = i;
+    public void SetDamage(int i) => damage = i;
+
+    public void SetCanAttackTrue()
+    {
+        canAttack = true;
+        AttackBox.SetActive(false);
+    }
 }
