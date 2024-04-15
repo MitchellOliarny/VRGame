@@ -80,7 +80,7 @@ public class SlimeHealth : Health
                 Debug.Log(tier + " " + pierce);
                 settings = colorManager.DecreaseColor(tier, pierce);
                 tier = settings.GetTier;
-                follower.UpdateSpeed(settings.GetSpeed);
+                follower.SetSpeed(settings.GetSpeed);
                 enemyScale.localScale = new Vector3(0.5f * settings.GetScale, 0.5f * settings.GetScale, 0.5f * settings.GetScale);
                 deathParticles = settings.GetDeathParticle;
                 GetComponent<MeshRenderer>().material = colorManager.GetMaterial(tier, pierce);

@@ -64,10 +64,17 @@ public class TurretShoot : MonoBehaviour
 
     private void CreateBullet(Transform t)
     {
-        turretBlast.Play();
-        turretShotSound.PlayOneShot(turretShotSound.clip, turretShotSound.volume);
+        if (turretBlast != null)
+        {
+            turretBlast.Play();
+        }
+        if (turretShotSound != null)
+        {
+            turretShotSound.PlayOneShot(turretShotSound.clip, turretShotSound.volume);
+        }
         GameObject tempBullet = Instantiate(_bullet, t.position, t.rotation);
         tempBullet.GetComponent<BulletScript>().SetDamage(damage);
+        tempBullet.GetComponent<BulletScript>().SetTarget(target.GetEnemyInArray(0));
         _bulletScript.SetProjectilePassThrough(projectilePassThrough);
         _bulletScript.SetRichochet(richochet);
         _bulletScript.Launch(t, tempBullet, speedMod);

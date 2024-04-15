@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbab50659afd9d94797ecdde9542c86e, type: 3}
   m_Name: Spawner_Settings
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 10
   bulletSpeed: 0
-  bulletScale: {x: 0, y: 0, z: 0}
+  bulletScale: {x: 0.25, y: 0.25, z: 0.25}
   speedMod: 0
   fireRateTimer: 0
-  fireRateStartTimer: 0
+  fireRateStartTimer: 1.5
   accuracyMod: 0

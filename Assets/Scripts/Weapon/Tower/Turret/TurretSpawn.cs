@@ -15,7 +15,6 @@ public class TurretSpawn : MonoBehaviour
 
     [SerializeField] private float spawnOffset;
 
-
     private int singularTurretCheck = 1;
 
     private void Start()
@@ -26,11 +25,14 @@ public class TurretSpawn : MonoBehaviour
 
     private void OnTransformParentChanged()
     {
-        gameObject.GetComponent<Rigidbody>().useGravity = true;
-        UnFreezeOnPickUp();
-        if(manager.GetMoney < cost)
+        if (manager.GetMoney < cost)
         {
-            Destroy(gameObject);
+            gameObject.transform.localPosition = new Vector3(0f, 0f, 0f);
+        }
+        else
+        {
+            gameObject.GetComponent<Rigidbody>().useGravity = true;
+            UnFreezeOnPickUp();
         }
     }
 

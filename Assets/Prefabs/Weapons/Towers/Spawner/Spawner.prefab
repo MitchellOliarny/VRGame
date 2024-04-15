@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4193248161027846369}
   - component: {fileID: 1320899790897202944}
   - component: {fileID: 3825806273396056696}
+  - component: {fileID: 2090118347005208422}
   m_Layer: 7
   m_Name: Spawner
   m_TagString: Untagged
@@ -191,24 +192,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 692ba1c07c09f5b489a1563a9c1efd2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletScript: {fileID: 0}
+  _bulletScript: {fileID: 5274578954375029004, guid: e75aed2f226284b46bd786937dceaf6e, type: 3}
   turretSettings: {fileID: 11400000, guid: fc2945349c52f874987ca89af67a33c3, type: 2}
-  turretAim: {fileID: 0}
+  turretAim: {fileID: 2090118347005208422}
   target: {fileID: 5178964777533885390}
-  _muzzle: {fileID: 0}
-  _bullet: {fileID: 0}
-  damage: 0
+  _muzzle: {fileID: 4849922413048308497}
+  _bullet: {fileID: 8354826172809737440, guid: e75aed2f226284b46bd786937dceaf6e, type: 3}
+  damage: 15
   speedMod: 0
-  pierce: 0
-  projectilePassThrough: 0
+  pierce: 1
+  projectilePassThrough: 1
   richochet: 0
-  camoDetect: 0
+  camoDetect: 1
   bulletScale: {x: 0, y: 0, z: 0}
   turretBlast: {fileID: 0}
   anim: {fileID: 0}
   turretShotSound: {fileID: 0}
   fireRateTimer: 0
   fireRateStartTimer: 0
+--- !u!114 &2090118347005208422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538628452712477642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be28cb6cb3d66f04b8682569df0a515b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHandler: {fileID: 0}
+  turretSettings: {fileID: 11400000, guid: fc2945349c52f874987ca89af67a33c3, type: 2}
+  _muzzle: {fileID: 4849922413048308497}
 --- !u!1 &2225008459340200457
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,7 +255,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4849922413048308497}
   m_Father: {fileID: 6375193096260427932}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2752822525881278250
@@ -376,6 +393,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7829713438842700686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4849922413048308497}
+  m_Layer: 7
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4849922413048308497
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7829713438842700686}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0698, y: -0.1091, z: 0.1214}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4405833759809628088}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8709500361619751171
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,7 +449,7 @@ Transform:
   m_GameObject: {fileID: 8709500361619751171}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.424, z: 0}
+  m_LocalPosition: {x: 0, y: -0.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

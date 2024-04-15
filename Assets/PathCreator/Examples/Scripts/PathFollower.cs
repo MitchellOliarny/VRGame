@@ -65,13 +65,19 @@ namespace PathCreation.Examples
         public void UpdateModifier(EnemyModifierSettings mod) {
             if (mod.Flying) { 
                 slimeHeight = 1.75f;
+                SetSpeed(settings.GetSpeed / 4);
             }
             if (mod.Speed) {
                 UpdateSpeed(speedModifier);
             }
         }
-        public void UpdateSpeed(float f) {
+        public void SetSpeed(float f)
+        {
             speed = f;
+            anim.SetFloat("animSpeed", speed);
+        }
+        public void UpdateSpeed(float f) {
+            speed *= f;
             anim.SetFloat("animSpeed", speed);
         }
 

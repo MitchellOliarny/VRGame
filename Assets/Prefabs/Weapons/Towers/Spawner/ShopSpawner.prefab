@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 7.5, y: 7.5, z: 7.5}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6085956130547188763}
@@ -93,9 +93,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6085956130547188763}
-  - component: {fileID: 4024038220439931526}
-  - component: {fileID: 4513614621233903394}
-  - component: {fileID: 7953026282481520033}
   - component: {fileID: 4356082525318906624}
   - component: {fileID: 7110526818082035170}
   - component: {fileID: 5886325397940496060}
@@ -118,76 +115,13 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6096002391958397429}
   - {fileID: 3153666985741836566}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &4024038220439931526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6863055336892276385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be28cb6cb3d66f04b8682569df0a515b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyHandler: {fileID: 0}
-  turretSettings: {fileID: 0}
-  _muzzle: {fileID: 0}
---- !u!114 &4513614621233903394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6863055336892276385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 692ba1c07c09f5b489a1563a9c1efd2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bulletScript: {fileID: 0}
-  turretSettings: {fileID: 11400000, guid: fc2945349c52f874987ca89af67a33c3, type: 2}
-  turretAim: {fileID: 0}
-  target: {fileID: 0}
-  _muzzle: {fileID: 0}
-  _bullet: {fileID: 0}
-  damage: 0
-  speedMod: 0
-  pierce: 1
-  projectilePassThrough: 0
-  richochet: 0
-  camoDetect: 0
-  bulletScale: {x: 0, y: 0, z: 0}
-  turretBlast: {fileID: 5270354935834947454, guid: d411c96a6b305f04fb92884d7e57badf, type: 3}
-  anim: {fileID: 0}
-  turretShotSound: {fileID: 8611439213028335093}
-  fireRateTimer: 0
-  fireRateStartTimer: 0
---- !u!114 &7953026282481520033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6863055336892276385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0317a0b153cdbd246b7a758a4f5b9cbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetFirst: 1
-  targetLast: 0
-  targetStrong: 0
-  targetWeak: 0
-  targetClose: 0
-  _enemyArray: []
 --- !u!114 &4356082525318906624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,8 +159,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2.1944242, z: 1.8798864}
-  m_Center: {x: 0, y: 0.02509553, z: 0.9235256}
+  m_Size: {x: 1, y: 2.1944242, z: 2.813325}
+  m_Center: {x: 0, y: 0.02509549, z: 1.0664513}
 --- !u!54 &5886325397940496060
 Rigidbody:
   m_ObjectHideFlags: 0

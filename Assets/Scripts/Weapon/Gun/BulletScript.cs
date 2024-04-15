@@ -14,12 +14,29 @@ public class BulletScript : MonoBehaviour
     [SerializeField] private int _canHit = 0; // If Bullet Can Hit
     [SerializeField] private int projectilePassThrough = 0, pierce;
     [SerializeField] private bool _canRichochet;
+    [SerializeField] private bool _isSeeking = false;
+    private GameObject enemy;
 
     private void Start()
     {
         StartCoroutine(DestroyOverLifeTime()); // Starts Coroutine to destroy bullet
         _canHit = 0; // Sets Can Hit to 0
         trailRenderer.startWidth = transform.localScale.x / 10; // Scales trail renderer down
+    }
+
+    private void Update()
+    {
+        if(_isSeeking)
+        {
+            float step = _speed * Time.deltaTime;
+            Vector3 target = new Vector3(enemy.transform.position.x, transform.position.y, enemy.transform.position.z);
+            transform.LookAt(target);
+            gameObject.transform.position = Vector3.MoveTowards(transform.position, new Vector3(enemy.transform.position.x, enemy.transform.position.y, enemy.transform.position.z), step);
+        }
+        if(!enemy)
+        {
+            Destroy(gameObject);
+        }
     }
 
     //----------------------------------------------------
@@ -87,4 +104,6 @@ public class BulletScript : MonoBehaviour
 
     public void SetPierce(int mod) => pierce = mod;
     public void SetRichochet(bool b) => _canRichochet = b;
+
+    public void SetTarget(GameObject t) => enemy = t;
 }
