@@ -71,13 +71,13 @@ public class SlimeHealth : Health
     {
         if (currentHealth <= 0)
         {
-            manager.MoneyDrop(settings.GetCashDrop);
+ 
+            manager.MoneyDrop(settings.GetCashDrop * pierce);
+  
             deathParticles.Play();
 
             if (colorManager.DecreaseColor(tier, pierce) != null)
             {
-                Debug.Log(colorManager.DecreaseColor(tier, pierce));
-                Debug.Log(tier + " " + pierce);
                 settings = colorManager.DecreaseColor(tier, pierce);
                 tier = settings.GetTier;
                 follower.SetSpeed(settings.GetSpeed);

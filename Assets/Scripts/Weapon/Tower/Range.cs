@@ -29,7 +29,7 @@ public class Range : MonoBehaviour
         }
     }
 
-        private bool CheckTarget(GameObject enemy)
+    private bool CheckTarget(GameObject enemy)
     {
 
         if (enemy.GetComponent<EnemyModifiers>().GetFlying && !targetFlying)
