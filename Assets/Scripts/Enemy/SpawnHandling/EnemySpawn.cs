@@ -3,6 +3,7 @@ using UnityEngine;
 using PathCreation;
 using PathCreation.Examples;
 using TMPro;
+using UnityEngine.Audio;
 public class EnemySpawn : MonoBehaviour
 {
     [Header("SCRIPTS")]
@@ -28,6 +29,12 @@ public class EnemySpawn : MonoBehaviour
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI WavesText;
 
+    [Header("Audio")]
+    [SerializeField] private AudioMixerSnapshot soft, round;
+    [SerializeField] private float transitionTime;
+
+    private bool round_end;
+
 
     private int index = 0;
 
@@ -40,15 +47,12 @@ public class EnemySpawn : MonoBehaviour
     void Start()
     {
         manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<EventManagerScript>();
-        handler.WaveCounter(0); // Set Wave Count to zero
-        WavesText.text = "Wave #" + (handler.GetActiveWave() + 1);
+        handler.WaveCounter(-1); // Set Wave Count to zero
+       
         path = GameObject.FindGameObjectWithTag("path").GetComponent<PathCreator>(); // Set Path to scene path
 
-        _enemyHolderArray = handler.GetEnemiesForWave(); // Add Wave Handler Slimes to Holder Array
-        startingEnemyTimer = handler.GetWaveTimer(); // Set Timer to Wave Handler Timer
-        modifierArray.AddRange(handler.GetEnemyModifiers()); // Set Modifier Array to Wave Handler Modifier Array
+        Invoke("StartNextWave", 10f);
 
-        enemySpawnTimer = startingEnemyTimer; // Set EnemySpawnTimer to Starting Timer
 
     }
 
@@ -57,17 +61,16 @@ public class EnemySpawn : MonoBehaviour
         if (handler.GetMaxWave < handler.GetActiveWave() + 1) return;
 
         // If Enemy Array is Empty && Enemy Holder Array is Empty && Modifier Array is Empty
-        if (_enemyArray.Count <= 0 && _enemyHolderArray.Count <= 0 && modifierArray.Count <= 0)
+        if (_enemyArray.Count <= 0 && _enemyHolderArray.Count <= 0 && modifierArray.Count <= 0 && !round_end)
         {
             handler.WaveCounter(handler.GetActiveWave() + 1); // Add one to Wave Counter
             manager.MoneyDrop(handler.GetWaveCash);
+            round_end = true;
+            soft.TransitionTo(transitionTime);
 
-            WavesText.text = "Wave #" + (handler.GetActiveWave() + 1);
-            _enemyHolderArray.AddRange(handler.GetEnemiesForWave()); // Add Wave Handler Slimes to Holder Array
-            startingEnemyTimer = handler.GetWaveTimer(); // Set Timer to Wave Hanlder Timer
-            modifierArray.AddRange(handler.GetEnemyModifiers()); // Set Modifier Array to Wave Handler Modifier Array
+            //Starts next wave automatically, transition to click
+            Invoke("StartNextWave", 10f);
 
-            index = 0;
 
         }
         // Else If Spawn Timer is less than equal 0
@@ -101,6 +104,19 @@ public class EnemySpawn : MonoBehaviour
         // If enemySpawnTimer greater than 0
         else
             enemySpawnTimer -= Time.deltaTime; // SpawnTimer -= Time
+    }
+
+    void StartNextWave()
+    {
+        round_end = false;
+        WavesText.text = "Wave #" + (handler.GetActiveWave() + 1);
+        _enemyHolderArray.AddRange(handler.GetEnemiesForWave()); // Add Wave Handler Slimes to Holder Array
+        startingEnemyTimer = handler.GetWaveTimer(); // Set Timer to Wave Hanlder Timer
+        modifierArray.AddRange(handler.GetEnemyModifiers()); // Set Modifier Array to Wave Handler Modifier Array
+        enemySpawnTimer = startingEnemyTimer; // Set EnemySpawnTimer to Starting Timer
+
+        index = 0;
+        round.TransitionTo(transitionTime);
     }
 
     #region TARGETING: GetFarthestEnemyOnPath(); GetShortestEnemyOnPath(); GetStrongestEnemy(); GetWeakestEnemy(); 
