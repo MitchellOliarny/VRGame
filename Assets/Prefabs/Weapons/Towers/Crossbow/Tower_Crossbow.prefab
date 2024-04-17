@@ -1418,7 +1418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3678916312885117862, guid: 1297ab5b2b797914a847a651722b9e4b, type: 3}
       propertyPath: sellPrice
-      value: 500
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3678916312885117862, guid: 1297ab5b2b797914a847a651722b9e4b, type: 3}
       propertyPath: upgradesText

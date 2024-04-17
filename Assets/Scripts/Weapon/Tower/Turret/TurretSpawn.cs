@@ -14,6 +14,7 @@ public class TurretSpawn : MonoBehaviour
     [SerializeField] private Quaternion turretRotation;
 
     [SerializeField] private float spawnOffset;
+    [SerializeField] private bool isPlayerWeapon = false;
 
     private int singularTurretCheck = 1;
 
@@ -28,17 +29,30 @@ public class TurretSpawn : MonoBehaviour
         if (manager.GetMoney < cost)
         {
             gameObject.transform.localPosition = new Vector3(0f, 0f, 0f);
+            if (isPlayerWeapon)
+            {
+                Destroy(gameObject);
+            }
         }
         else
         {
             gameObject.GetComponent<Rigidbody>().useGravity = true;
             UnFreezeOnPickUp();
+            if (isPlayerWeapon)
+            {
+                if(transform.parent == null)
+                {
+                    Destroy(gameObject);
+                    GameObject weapon = Instantiate(Turret, new Vector3(miniTurret.transform.position.x, miniTurret.transform.position.y + spawnOffset, miniTurret.transform.position.z), turretRotation);
+                    manager.MoneyReduce(cost);
+                }
+            }
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("ground") && gameObject.GetComponent<Rigidbody>().useGravity == true)
+        if (collision.collider.CompareTag("ground") && gameObject.GetComponent<Rigidbody>().useGravity == true && !isPlayerWeapon)
         {
             if (singularTurretCheck > 0)
             {

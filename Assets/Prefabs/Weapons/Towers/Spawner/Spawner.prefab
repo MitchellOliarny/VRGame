@@ -45,6 +45,7 @@ Transform:
   - {fileID: 483739006436254079}
   - {fileID: 4102942434136829216}
   - {fileID: 5225215338291395120}
+  - {fileID: 528578188349821907}
   - {fileID: 2922581567744182912}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -122,7 +123,7 @@ MonoBehaviour:
   - Acid Spray
   path2UpgradeDescrips:
   - +1 Snake to fight for you
-  - Snakes now pop 2 enemy layers
+  - Snakes now pop 4 enemy layers
   - +1 Snake
   - Snakes have a chance to leave an acid pool on attack
   path2UpgradeCosts: fa000000f401000058020000e2040000
@@ -166,9 +167,10 @@ MonoBehaviour:
   camo: 0
   snakes:
   - {fileID: 4186454194085860836}
+  - {fileID: 8489029442158803975}
   snakesSpawn1: 1
   snakesSpawn3: 1
-  snakeLayerBreak2: 2
+  snakeLayerBreak2: 4
   acid: 0
   wolves:
   - {fileID: 2449032479048604402}
@@ -673,7 +675,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4095767118815471157, guid: e74135988dd6c1e4fb88fdddd056a273, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.034
+      value: -0.066
       objectReference: {fileID: 0}
     - target: {fileID: 4095767118815471157, guid: e74135988dd6c1e4fb88fdddd056a273, type: 3}
       propertyPath: m_LocalPosition.z
@@ -819,7 +821,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6290125863427177343, guid: 7822bd9f545434841b805988e120d1e1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.106
+      value: 0.015
       objectReference: {fileID: 0}
     - target: {fileID: 6290125863427177343, guid: 7822bd9f545434841b805988e120d1e1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1093,6 +1095,77 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6150277233594411599, guid: 57fd889fec80176468f67e7a34932825, type: 3}
   m_PrefabInstance: {fileID: 4627190451736849656}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5773305942637455532
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5766466115246930530}
+    m_Modifications:
+    - target: {fileID: 2725223577413194923, guid: 7822bd9f545434841b805988e120d1e1, type: 3}
+      propertyPath: m_Name
+      value: Snake (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725223577413194923, guid: 7822bd9f545434841b805988e120d1e1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6290125863427177343, guid: 7822bd9f545434841b805988e120d1e1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 6290125863427177343, guid: 7822bd9f545434841b805988e120d1e1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.015
+      objectReference: {fileID: 0}
+    - target: {fileID: 6290125863427177343, guid: 7822bd9f545434841b805988e120d1e1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.528
+      objectReference: {fileID: 0}
+    - target: {fileID: 6290125863427177343, guid: 7822bd9f545434841b805988e120d1e1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6290125863427177343, guid: 7822bd9f545434841b805988e120d1e1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6290125863427177343, guid: 7822bd9f545434841b805988e120d1e1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6290125863427177343, guid: 7822bd9f545434841b805988e120d1e1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6290125863427177343, guid: 7822bd9f545434841b805988e120d1e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6290125863427177343, guid: 7822bd9f545434841b805988e120d1e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6290125863427177343, guid: 7822bd9f545434841b805988e120d1e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7822bd9f545434841b805988e120d1e1, type: 3}
+--- !u!4 &528578188349821907 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6290125863427177343, guid: 7822bd9f545434841b805988e120d1e1, type: 3}
+  m_PrefabInstance: {fileID: 5773305942637455532}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8489029442158803975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2725223577413194923, guid: 7822bd9f545434841b805988e120d1e1, type: 3}
+  m_PrefabInstance: {fileID: 5773305942637455532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8291450822802361628
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1319,7 +1392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3678916312885117862, guid: 1297ab5b2b797914a847a651722b9e4b, type: 3}
       propertyPath: sellPrice
-      value: 500
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3678916312885117862, guid: 1297ab5b2b797914a847a651722b9e4b, type: 3}
       propertyPath: upgradesText
@@ -1543,7 +1616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7402681652632828937, guid: 1297ab5b2b797914a847a651722b9e4b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.293
       objectReference: {fileID: 0}
     - target: {fileID: 7402681652632828937, guid: 1297ab5b2b797914a847a651722b9e4b, type: 3}
       propertyPath: m_LocalPosition.z

@@ -74,7 +74,7 @@ public class SpawnerUpgradeManager : UpgradeMaster
                             }
                             foreach (GameObject i in bats)
                             {
-                                i.GetComponent<AnimalMovement>().SetPierce(2);
+                                i.GetComponent<AnimalMovement>().SetPierce(batLayerBreak4);
                             }
                             break;
                     }
@@ -90,7 +90,10 @@ public class SpawnerUpgradeManager : UpgradeMaster
                             }
                             break;
                         case 2:
-                            //Snake Layer Break 2
+                            foreach (GameObject i in snakes)
+                            {
+                                i.GetComponent<AnimalMovement>().SetPierce(snakeLayerBreak2);
+                            }
                             break;
                         case 3:
                             for (int i = snakesSpawn1; i < snakesSpawn1 + snakesSpawn3; i++)

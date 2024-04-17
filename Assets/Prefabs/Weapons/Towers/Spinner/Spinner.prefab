@@ -346,6 +346,7 @@ MonoBehaviour:
   callSever: {fileID: 362602206506842692}
   damage: 10
   InstanceID: 0
+  pierce: 0
   hitEffect: {fileID: 7370655015041096634, guid: bf82fbeb08272844b8ce6bd2dc6de51d, type: 3}
   col: {fileID: 0}
   distance: 6
@@ -484,6 +485,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a77cb3119216e0b46bf1c4a524b2e698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetFlying: 0
+  targetCamo: 0
 --- !u!1 &7352785275975946284
 GameObject:
   m_ObjectHideFlags: 0
@@ -1254,7 +1257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3678916312885117862, guid: 1297ab5b2b797914a847a651722b9e4b, type: 3}
       propertyPath: sellPrice
-      value: 750
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3820421265755492556, guid: 1297ab5b2b797914a847a651722b9e4b, type: 3}
       propertyPath: m_LocalScale.x

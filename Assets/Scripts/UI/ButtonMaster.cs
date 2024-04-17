@@ -11,8 +11,8 @@ public class ButtonMaster : MonoBehaviour
     private EventManagerScript manager;
 
     [Header("MAX UPGRADES")]
-    [SerializeField] private int MAXUPGRADES = 7;
-    [SerializeField] private int currentUpgrades;
+    [SerializeField] private int MAXUPGRADES;
+    [SerializeField] private int currentUpgrades = 0;
     [SerializeField] private int sellPrice = 0;
 
     [Header("BUTTONS")]
@@ -67,18 +67,14 @@ public class ButtonMaster : MonoBehaviour
 
     public void UpgradePath1(int upgrade)
     {
-        if (currentUpgrades >= MAXUPGRADES)
-        {
-            DisableButtons();
-            return;
-        }
-
         if (upgrader.Upgrade(1, upgrade))
         {
             currentUpgrades++;
             currentTop += 1;
             sellPrice += descriptions.GetTopPathCost(upgrade - 1);
             ButtonDeactivator(upgradeBtn1[upgrade - 1]);
+            if (CheckUpgradeCount())
+                return;
 
             if (upgrade < upgradeBtn1.Length)
                 StartCoroutine(buttonActivator(upgradeBtn1[upgrade]));
@@ -86,11 +82,6 @@ public class ButtonMaster : MonoBehaviour
     }
     public void UpgradePath2(int upgrade)
     {
-        if (currentUpgrades >= MAXUPGRADES)
-        {
-            DisableButtons();
-            return;
-        }
 
         if (upgrader.Upgrade(2, upgrade))
         {
@@ -98,25 +89,24 @@ public class ButtonMaster : MonoBehaviour
             currentMiddle += 1;
             sellPrice += descriptions.GetMiddlePathCost(upgrade - 1);
             ButtonDeactivator(upgradeBtn2[upgrade - 1]);
+            if (CheckUpgradeCount())
+                return;
 
             if (upgrade < upgradeBtn2.Length)
                 StartCoroutine(buttonActivator(upgradeBtn2[upgrade]));
+
         }
     }
     public void UpgradePath3(int upgrade)
     {
-        if (currentUpgrades >= MAXUPGRADES)
-        {
-            DisableButtons();
-            return;
-        }
-
         if (upgrader.Upgrade(3, upgrade))
         {
             currentUpgrades++;
             currentBottom += 1;
             sellPrice += descriptions.GetBottomPathCost(upgrade - 1);
             ButtonDeactivator(upgradeBtn3[upgrade - 1]);
+            if(CheckUpgradeCount())
+                return;
 
             if (upgrade < upgradeBtn3.Length)
                 StartCoroutine(buttonActivator(upgradeBtn3[upgrade]));
@@ -156,7 +146,16 @@ public class ButtonMaster : MonoBehaviour
         button.GetComponent<Image>().color = new Color32(0, 248, 70, 255);
         button.GetComponent<UpgradeButtonScript>().ChildButtonState(false);
     }
-
+    
+    private bool CheckUpgradeCount()
+    {
+        if (currentUpgrades >= MAXUPGRADES)
+        {
+            DisableButtons();
+            return true;
+        }
+        return false;
+    }
     #region Getters
     public GameObject[] GetButtonsPath1() => upgradeBtn1;
     public GameObject[] GetButtonsPath2() => upgradeBtn2;

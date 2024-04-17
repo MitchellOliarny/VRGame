@@ -458,7 +458,7 @@ MonoBehaviour:
   - {fileID: 6863055336892276385, guid: 46056e2f86b9b5f4baaa115dd68a7922, type: 3}
   - {fileID: 4279475327155493892, guid: 89981606a9fc84340a4ea2cceea60403, type: 3}
   - {fileID: 6863055336892276385, guid: bf10efd40e9e26145aa70393d02fb392, type: 3}
-  - {fileID: 4190317856643159954, guid: 0b72eb85366138444907ef821d9a0b00, type: 3}
+  - {fileID: 4190317856643159954, guid: 1fb0d30f779213a48bc3934b1b6bd839, type: 3}
   currTower: 0
   towerAttach: {fileID: 3745126055230573070}
   costText: {fileID: 7955789912781722134}
@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 7662107990650486786}
   m_Layer: 2
   m_Name: TowerAttach
-  m_TagString: Untagged
+  m_TagString: TowerAttach
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
